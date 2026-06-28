@@ -169,16 +169,7 @@ export const mdxComponents: MDXComponents = {
     <tbody>{children as ReactNode}</tbody>
   ),
   tr: ({ children }) => (
-    <tr
-      className="transition-colors"
-      style={{ background: "transparent" }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.background = "rgba(79,124,247,0.04)";
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.background = "transparent";
-      }}
-    >
+    <tr className="transition-colors hover:bg-[rgba(79,124,247,0.04)]">
       {children as ReactNode}
     </tr>
   ),
@@ -189,14 +180,8 @@ export const mdxComponents: MDXComponents = {
   a: ({ href, children }) => (
     <a
       href={href}
-      className="underline underline-offset-4 transition-colors"
+      className="underline underline-offset-4 transition-colors hover:opacity-75"
       style={{ color: "var(--color-accent)" }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.color = "var(--color-accent-hover)";
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.color = "var(--color-accent)";
-      }}
     >
       {children as ReactNode}
     </a>
