@@ -27,7 +27,7 @@ export async function signupAction(
     const rows = await sql`
       INSERT INTO users (email, password_hash) VALUES (${email}, ${passwordHash}) RETURNING id
     `;
-    userId = rows[0].id;
+    userId = rows[0].id as string;
   } catch (err: unknown) {
     const pg = err as { code?: string };
     if (pg.code === "23505") {

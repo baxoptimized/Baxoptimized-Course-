@@ -19,11 +19,11 @@ export async function loginAction(
 
   if (!password) return { error: "Password is required." };
 
+  type UserRow = { id: string; password_hash: string; role: string };
   const rows = await sql`
     SELECT id, password_hash, role FROM users WHERE email = ${email}
   `;
-
-  const user = rows[0];
+  const user = rows[0] as UserRow | undefined;
 
   // Constant-time path: always run bcrypt even if user not found to prevent timing attacks
   const hashToCheck = user?.password_hash ?? "$2b$12$invalidhashpaddingtomatchlength000000000000000000000";
