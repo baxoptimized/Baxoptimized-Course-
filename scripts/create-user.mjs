@@ -47,9 +47,12 @@ async function main() {
     console.log("\nHashing password...");
     const passwordHash = await bcrypt.hash(password, 12);
 
+    // Staff and admin never need to pay; grant has_paid so middleware lets them through
+    const hasPaid = role !== "student";
+
     const rows = await sql`
-      INSERT INTO users (email, password_hash, role)
-      VALUES (${email}, ${passwordHash}, ${role})
+      INSERT INTO users (email, password_hash, role, has_paid)
+      VALUES (${email}, ${passwordHash}, ${role}, ${hasPaid})
       RETURNING id, email, role, created_at
     `;
 

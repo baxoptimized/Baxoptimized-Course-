@@ -14,6 +14,7 @@ export type SessionPayload = {
   userId: string;
   email: string;
   role: "student" | "staff" | "admin";
+  hasPaid: boolean;
 };
 
 export async function signToken(payload: SessionPayload): Promise<string> {
