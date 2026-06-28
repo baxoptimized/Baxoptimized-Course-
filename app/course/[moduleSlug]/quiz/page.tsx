@@ -135,7 +135,7 @@ function ResultsView({
                 {nextModule.title}
               </p>
               <a
-                href={`/course/${nextModule.slug}`}
+                href="/course"
                 className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold"
                 style={{ background: "var(--color-gold)", color: "#000" }}
               >
@@ -216,11 +216,11 @@ function ResultsView({
             Retake quiz
           </a>
           <a
-            href={`/course/${mod.slug}`}
+            href="/course"
             className="text-sm"
             style={{ color: "var(--color-text-muted)", textDecoration: "none" }}
           >
-            ← Back to module
+            ← Back to course
           </a>
         </div>
       )}
@@ -279,7 +279,7 @@ export default async function QuizPage({
   // Guard: staff-only module requires staff/admin role
   if (mod.is_staff_only && user.role === "student") redirect("/course");
 
-  if (!questions.length) redirect(`/course/${moduleSlug}`);
+  if (!questions.length) redirect("/course");
 
   // ── Results view ──────────────────────────────────────────────────────────
   if (attemptId) {
