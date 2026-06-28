@@ -16,24 +16,12 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 -- ─── users ────────────────────────────────────────────────────────────────────
 CREATE TABLE users (
-  id                 UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
-  email              TEXT        NOT NULL UNIQUE,
-  password_hash      TEXT        NOT NULL DEFAULT '',
-  role               TEXT        NOT NULL DEFAULT 'student'
-                                 CHECK (role IN ('student', 'staff', 'admin')),
-  has_paid           BOOLEAN     NOT NULL DEFAULT FALSE,
-  stripe_customer_id TEXT,
-  created_at         TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
--- ─── password_reset_tokens ────────────────────────────────────────────────────
-CREATE TABLE password_reset_tokens (
-  id         UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id    UUID        NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  token      TEXT        NOT NULL UNIQUE,
-  expires_at TIMESTAMPTZ NOT NULL,
-  used       BOOLEAN     NOT NULL DEFAULT FALSE,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  id            UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+  email         TEXT        NOT NULL UNIQUE,
+  password_hash TEXT        NOT NULL,
+  role          TEXT        NOT NULL DEFAULT 'student'
+                            CHECK (role IN ('student', 'staff', 'admin')),
+  created_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 -- ─── modules ──────────────────────────────────────────────────────────────────
