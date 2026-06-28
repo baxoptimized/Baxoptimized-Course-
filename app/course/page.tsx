@@ -137,6 +137,7 @@ export default async function CoursePage() {
     LEFT JOIN fi ON fi.module_id = m.id
     LEFT JOIN pq ON pq.module_id = m.id
     LEFT JOIN hq ON hq.module_id = m.id
+    LEFT JOIN cp ON cp.module_id = m.id
     ORDER BY m.order_index
   `) as ModuleRow[];
 
