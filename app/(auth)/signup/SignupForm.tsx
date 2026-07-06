@@ -1,11 +1,11 @@
 "use client";
 
 import { useActionState } from "react";
-import { loginAction } from "./actions";
+import { signupAction } from "./actions";
 import Link from "next/link";
 
-export default function LoginPage() {
-  const [state, action, pending] = useActionState(loginAction, null);
+export function SignupForm({ initialEmail }: { initialEmail: string }) {
+  const [state, action, pending] = useActionState(signupAction, null);
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "var(--color-navy-950)" }}>
@@ -17,10 +17,10 @@ export default function LoginPage() {
             Baxoptimized
           </span>
           <h1 className="text-3xl font-bold" style={{ color: "var(--color-text-primary)" }}>
-            Welcome back
+            Create your account
           </h1>
           <p className="mt-2 text-sm" style={{ color: "var(--color-text-secondary)" }}>
-            Sign in to continue your training
+            Get access to the full training program
           </p>
         </div>
 
@@ -43,6 +43,7 @@ export default function LoginPage() {
                 name="email"
                 required
                 autoComplete="email"
+                defaultValue={initialEmail}
                 placeholder="you@example.com"
                 className="w-full rounded-lg px-4 py-3 text-sm outline-none transition-colors"
                 style={{
@@ -53,17 +54,26 @@ export default function LoginPage() {
                 onFocus={e => (e.currentTarget.style.borderColor = "var(--color-accent)")}
                 onBlur={e => (e.currentTarget.style.borderColor = "var(--color-border)")}
               />
+              <p className="text-xs" style={{ color: "var(--color-text-muted)" }}>
+                Use the same email address you paid with.
+              </p>
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-sm font-medium" style={{ color: "var(--color-text-secondary)" }}>
-                Password
-              </label>
+              <div className="flex items-center justify-between">
+                <label className="block text-sm font-medium" style={{ color: "var(--color-text-secondary)" }}>
+                  Password
+                </label>
+                <span className="text-xs" style={{ color: "var(--color-text-muted)" }}>
+                  Minimum 8 characters
+                </span>
+              </div>
               <input
                 type="password"
                 name="password"
                 required
-                autoComplete="current-password"
+                minLength={8}
+                autoComplete="new-password"
                 placeholder="••••••••"
                 className="w-full rounded-lg px-4 py-3 text-sm outline-none transition-colors"
                 style={{
@@ -84,39 +94,17 @@ export default function LoginPage() {
               onMouseEnter={e => !pending && (e.currentTarget.style.background = "var(--color-accent-hover)")}
               onMouseLeave={e => (e.currentTarget.style.background = "var(--color-accent)")}
             >
-              {pending ? "Signing in…" : "Sign in"}
+              {pending ? "Creating account…" : "Create account"}
             </button>
           </form>
         </div>
 
         <p className="text-center mt-6 text-sm" style={{ color: "var(--color-text-muted)" }}>
-          Don&apos;t have an account?{" "}
-          <Link href="/signup" className="font-medium" style={{ color: "var(--color-accent)" }}>
-            Sign up
+          Already have an account?{" "}
+          <Link href="/login" className="font-medium" style={{ color: "var(--color-accent)" }}>
+            Sign in
           </Link>
         </p>
-
-        {/* Purchase CTA */}
-        <div
-          className="mt-8 rounded-2xl border p-6 text-center"
-          style={{ background: "rgba(240,168,67,0.06)", borderColor: "rgba(240,168,67,0.25)" }}
-        >
-          <p className="text-sm font-medium" style={{ color: "var(--color-text-primary)" }}>
-            Want to purchase the course?
-          </p>
-          <p className="mt-1 text-xs" style={{ color: "var(--color-text-secondary)" }}>
-            Buy access, then create your account with the same email.
-          </p>
-          {process.env.NEXT_PUBLIC_PURCHASE_URL && (
-            <a
-              href={process.env.NEXT_PUBLIC_PURCHASE_URL}
-              className="mt-4 inline-flex items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-semibold"
-              style={{ background: "var(--color-gold)", color: "#000" }}
-            >
-              Get the course →
-            </a>
-          )}
-        </div>
       </div>
     </div>
   );

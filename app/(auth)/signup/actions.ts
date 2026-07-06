@@ -20,6 +20,17 @@ export async function signupAction(
   const passwordError = validatePassword(password);
   if (passwordError) return { error: passwordError };
 
+  const purchaseRows = await sql`
+    SELECT id FROM purchases WHERE lower(email) = ${email} AND claimed_at IS NULL LIMIT 1
+  `;
+  const purchase = (purchaseRows as { id: string }[])[0];
+  if (!purchase) {
+    return {
+      error:
+        "We couldn't find a completed purchase for that email address. Use the same email you paid with, or check your inbox for the confirmation link.",
+    };
+  }
+
   const passwordHash = await hashPassword(password);
 
   let userId: string;
@@ -36,6 +47,10 @@ export async function signupAction(
     console.error("Signup DB error:", err);
     return { error: "Something went wrong. Please try again." };
   }
+
+  await sql`
+    UPDATE purchases SET claimed_at = NOW(), user_id = ${userId} WHERE id = ${purchase.id}
+  `;
 
   await setSession({ userId, email, role: "student" });
   redirect("/course");
