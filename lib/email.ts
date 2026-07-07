@@ -16,7 +16,7 @@ export async function sendPurchaseConfirmationEmail(email: string): Promise<void
   const signupUrl = `${appUrl}/signup?email=${encodeURIComponent(email)}`;
   const from = process.env.RESEND_FROM_EMAIL ?? "Baxoptimized <onboarding@resend.dev>";
 
-  await getClient().emails.send({
+  const { error } = await getClient().emails.send({
     from,
     to: email,
     subject: "You're in — create your Baxoptimized account",
@@ -27,4 +27,8 @@ export async function sendPurchaseConfirmationEmail(email: string): Promise<void
       <p>Use the same email address you just paid with (${email}) when creating your account.</p>
     `,
   });
+
+  if (error) {
+    throw new Error(`Resend rejected purchase confirmation email: ${error.name} — ${error.message}`);
+  }
 }
