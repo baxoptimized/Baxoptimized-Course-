@@ -1,5 +1,7 @@
 "use client";
 
+import { lessonUrlPart } from "@/lib/lessonUrl";
+
 export type ProcessedModule = {
   id: string;
   slug: string;
@@ -19,12 +21,6 @@ export type ProcessedModule = {
   isLocked: boolean;
   status: "completed" | "in_progress" | "not_started" | "locked" | "pending_review";
 };
-
-/** Convert a full DB lesson slug ("moduleSlug--lessonPart") to a URL-safe part. */
-function lessonUrlPart(lessonSlug: string, moduleSlug: string): string {
-  const prefix = moduleSlug + "--";
-  return lessonSlug.startsWith(prefix) ? lessonSlug.slice(prefix.length) : lessonSlug;
-}
 
 const STATUS = {
   completed: {

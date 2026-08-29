@@ -1,4 +1,5 @@
 -- ─── Drop existing tables (order matters for FK deps) ────────────────────────
+DROP TABLE IF EXISTS purchases             CASCADE;
 DROP TABLE IF EXISTS certificates          CASCADE;
 DROP TABLE IF EXISTS checkpoint_submissions CASCADE;
 DROP TABLE IF EXISTS quiz_attempts         CASCADE;
@@ -114,3 +115,39 @@ CREATE TABLE certificates (
 );
 
 CREATE INDEX idx_certificates_user_id ON certificates(user_id);
+
+-- ─── purchases ────────────────────────────────────────────────────────────────
+-- One row per completed Stripe Checkout session. Signup is gated on a
+-- matching, unclaimed row (see app/(auth)/signup/actions.ts).
+CREATE TABLE purchases (
+  id                 UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+  email              TEXT        NOT NULL,
+  stripe_session_id  TEXT        NOT NULL UNIQUE,
+  stripe_customer_id TEXT,
+  amount_total       INTEGER,
+  currency           TEXT,
+  claimed_at         TIMESTAMPTZ,
+  user_id            UUID        REFERENCES users(id) ON DELETE SET NULL,
+  created_at         TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX idx_purchases_email ON purchases (lower(email));
+
+-- Keep claimed_at truthful when a linked user disappears (FK ON DELETE SET
+-- NULL above, or any future manual/admin deletion): without this, a
+-- deleted account leaves behind a purchase that still reads as "claimed"
+-- with no way to tell it's actually orphaned. Found via a live audit where
+-- two test accounts had been deleted, silently orphaning their purchases.
+CREATE OR REPLACE FUNCTION purchases_unclaim_on_orphan() RETURNS TRIGGER AS $$
+BEGIN
+  IF NEW.user_id IS NULL AND OLD.user_id IS NOT NULL THEN
+    NEW.claimed_at := NULL;
+  END IF;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_purchases_unclaim_on_orphan
+  BEFORE UPDATE ON purchases
+  FOR EACH ROW
+  EXECUTE FUNCTION purchases_unclaim_on_orphan();

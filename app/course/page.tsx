@@ -3,6 +3,7 @@ import { getCurrentUser } from "@/lib/session";
 import { sql } from "@/lib/db";
 import { CourseNav } from "@/components/course/CourseNav";
 import { ModuleCard, type ProcessedModule } from "@/components/course/ModuleCard";
+import { CourseRail } from "@/components/course/CourseRail";
 
 // ── Raw DB row type ───────────────────────────────────────────────────────────
 
@@ -36,14 +37,14 @@ function parseTitle(raw: string): { num: string; cleanTitle: string } {
 function buildModules(rows: ModuleRow[], role: string): ProcessedModule[] {
   const visible = rows.filter((m) => role !== "student" || !m.is_staff_only);
 
+  // Lock state must propagate down the *whole* chain, not just from the
+  // immediately-preceding module: a gate-less module (no quiz, no
+  // hard_gate) is trivially "cleared" and must NOT reset an earlier block
+  // back to unlocked for everything after it.
+  let chainBlocked = false;
+
   return visible.map((m, idx) => {
-    const prev = visible[idx - 1];
-    // Locked if previous module has an unfulfilled gate:
-    //   quiz gate:       prev has quiz AND not passed
-    //   checkpoint gate: prev has hard_gate AND checkpoint not approved
-    const prevQuizBlocks       = (prev?.has_quiz ?? false) && !prev?.quiz_passed;
-    const prevCheckpointBlocks = (prev?.hard_gate ?? false) && prev?.checkpoint_status !== "approved";
-    const isLocked = idx > 0 && (prevQuizBlocks || prevCheckpointBlocks);
+    const isLocked = idx > 0 && chainBlocked;
 
     let status: ProcessedModule["status"] = "not_started";
     if (isLocked) {
@@ -60,6 +61,9 @@ function buildModules(rows: ModuleRow[], role: string): ProcessedModule[] {
     } else if (m.completed_lessons > 0) {
       status = "in_progress";
     }
+
+    const cleared = (!m.has_quiz || m.quiz_passed) && (!m.hard_gate || m.checkpoint_status === "approved");
+    if (!cleared) chainBlocked = true;
 
     const { num, cleanTitle } = parseTitle(m.title);
     return { ...m, num, cleanTitle, isLocked, status };
@@ -165,7 +169,9 @@ export default async function CoursePage() {
 
       <CourseNav />
 
-      <main className="mx-auto max-w-2xl px-5 pb-24 pt-12">
+      <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-12 px-5 pb-24 pt-12 lg:grid-cols-[minmax(0,680px)_320px] lg:px-8">
+
+      <main>
 
         {/* ── Welcome + overall progress ─────────────────────────────────── */}
         <div className="mb-12">
@@ -273,6 +279,17 @@ export default async function CoursePage() {
         </section>
 
       </main>
+
+      <CourseRail
+        modules={modules}
+        pct={pct}
+        doneLessons={doneLessons}
+        totalLessons={totalLessons}
+        quizzesPassed={quizzesPassed}
+        hasCertificate={!!certificate}
+      />
+
+      </div>
     </div>
   );
 }

@@ -8,57 +8,68 @@
 
 ## 🌐 What a website actually is
 
-A website is just **files** — HTML, CSS, JavaScript, images — sitting on a computer that's always switched on. That computer is called a **server.**
+A website is not magic. It's just **files** — HTML, CSS, JavaScript, and images — sitting on a computer that never turns off. That computer is called a **server**.
 
-> 🖼️ **DIAGRAM PLACEHOLDER:** *The Request/Response Loop* — five labelled steps in a circle: Browser → DNS lookup → IP address returned → Request sent to server → Files sent back → Browser renders page.
+<URLBar url="smithbuildingco.com.au" label="What a visitor types into their browser" />
 
-**The five-step loop, every visit, every time:**
-1. You type a domain into your browser
-2. Browser asks **DNS** (the internet's phone book) "where does this live?"
-3. DNS replies with an **IP address**
-4. Browser asks that server for its files
-5. Server sends the files, browser builds the page
+Behind that simple address bar, five things happen every single time someone visits a page, always in the same order:
 
-> 💡 Once you really get this, the "magic" disappears from everything later — DNS, hosting, deployment, all of it is just this loop.
+1. You type a domain into your browser.
+2. The browser asks **DNS** — think of it as the internet's phone book — "where does this domain actually live?"
+3. DNS replies with an **IP address**, the numeric location of the server that hosts the site.
+4. The browser asks that server for its files.
+5. The server sends the files back, and the browser assembles them into the page you see on screen.
+
+> 🖼️ **DIAGRAM PLACEHOLDER:** The request-response loop, five steps in a circle: Browser asks DNS → DNS replies with IP → Browser requests files → Server sends files → Browser renders page
+
+> 💡 Once this loop actually clicks, nothing later in the course feels like magic. DNS, hosting, and deployment are all just this same five-step loop happening under the hood.
 
 ---
 
 ## 🧱 The four moving parts
 
-> 🖼️ **DIAGRAM PLACEHOLDER:** Four boxes in sequence — Domain → DNS Records → Hosting → Code — with small icons for registrar, signpost, server, and file.
+Every website — no matter how simple or complex — is built from exactly four pieces. Learn these four, and you can diagnose almost any "my site is broken" problem in under a minute.
 
-| Part | What it is | Example |
+> 🖼️ **DIAGRAM PLACEHOLDER:** The four moving parts in sequence: Domain → DNS records → Hosting → Code
+
+| Part | What it actually is | Real example |
 |---|---|---|
-| **Domain** | The address people type | smithbuildingco.com.au |
-| **DNS records** | Instructions pointing the domain at the host | An A record, a CNAME |
-| **Hosting** | The server storing and serving files | Vercel |
-| **Code** | The actual HTML/CSS/JS | What you build |
+| **Domain** | The human-readable address people type into the browser | `smithbuildingco.com.au` |
+| **DNS records** | The instructions that point a domain at a host | An A record, a CNAME record |
+| **Hosting** | The server that stores and serves the files | Vercel |
+| **Code** | The actual HTML, CSS, and JavaScript | What you'll build in this course |
 
-> 🛠️ **Troubleshooting rule:** if a site's broken, it's always one of these four. Check in order: domain → DNS → hosting → code. You'll find it almost every time.
+> 🛠️ **Troubleshooting rule:** if a site is broken, the cause is always one of these four things. Check them in this exact order — domain, then DNS, then hosting, then code — and you'll find the problem almost every time.
 
 ---
 
 ## 🦴 Front-end vs back-end
 
-> 🖼️ **DIAGRAM PLACEHOLDER:** A simple figure split into three layers — Skeleton (HTML), Skin/Clothes (CSS), Muscles (JavaScript) — next to a separate box labelled "Back-end: happens on a server, never seen directly."
+Think of a website like a body. Three layers stack on top of each other to build what you see and interact with:
 
-| Language | Analogy | Does what |
+> 🖼️ **DIAGRAM PLACEHOLDER:** Three layers stacked: Skeleton, HTML → Skin and clothes, CSS → Muscles, JavaScript
+
+| Language | Analogy | What it actually does |
 |---|---|---|
-| **HTML** | Skeleton | Structure — headings, paragraphs, buttons |
-| **CSS** | Skin & clothes | Colour, fonts, spacing, layout |
-| **JavaScript** | Muscles | Interactivity — anything that moves or responds |
+| **HTML** | Skeleton | Structure — headings, paragraphs, buttons. The bones of the page. |
+| **CSS** | Skin & clothes | Colour, fonts, spacing, layout. Everything that makes it look good. |
+| **JavaScript** | Muscles | Interactivity — anything that moves, reacts, or responds to a click. |
 
-**Front-end** = what the browser shows and runs. **Back-end** = what happens on a server the visitor never sees — like sending an email when a form is submitted (you'll see this for real in Module 8).
+Everything in that table runs in the visitor's own browser. That's why it's called the **front-end**.
+
+The **back-end** is different: it's code that runs on a server, not in the visitor's browser, and the visitor never sees it directly. A good example is sending an email when someone submits a contact form. A browser can *display* that form, but it physically cannot send an email by itself — something on a server has to do that part. You'll build exactly this in Module 8.
 
 ---
 
 ## ☁️ "The cloud," servers, and CDNs — demystified
 
-> ☁️ **"The cloud" just means someone else's computer that you're renting space on.** No magic.
+> ☁️ **"The cloud" is just someone else's computer that you're renting space on.** There's no magic involved. It's a physical machine sitting in a data centre somewhere, doing the same job your own laptop could do if it never switched off and had a permanent internet connection.
 
-> 🖼️ **DIAGRAM PLACEHOLDER:** World map with server icons in multiple cities, showing a Sydney visitor served from a nearby node, not a distant one.
+A **CDN** (Content Delivery Network) solves one specific problem: if your server lives in one city, a visitor on the other side of the world has to wait for data to travel that whole distance before the page can load. A CDN copies your site's files to servers in many cities around the world, so every visitor gets served from whichever copy is physically closest to *them*.
 
-A **CDN** copies your site's files to servers worldwide, so visitors get served from whichever copy is physically closest. Vercel does this automatically — zero setup, every site, every time.
+> 🖼️ **DIAGRAM PLACEHOLDER:** CDN routing in sequence: Visitor in Sydney → Nearest CDN node, Sydney → Fast page load
+
+Vercel — the hosting platform this course is built on — does this automatically. Zero setup, on every site, every single time.
 
 ---
 
@@ -66,13 +77,13 @@ A **CDN** copies your site's files to servers worldwide, so visitors get served 
 
 | | WordPress + shared hosting | Next.js → GitHub → Vercel |
 |---|---|---|
-| Security | Plugins = constant vulnerabilities | Minimal attack surface |
-| Backups | Manual, often forgotten | Every Git commit = a backup point |
-| Speed | Shared resources, often slow | Global CDN, fast by default |
-| Breaking changes | Plugin updates break things | Tested code, easy rollback |
-| SSL | Often manual | Automatic, free |
+| Security | Plugins create constant vulnerabilities | Minimal attack surface — far less that can go wrong |
+| Backups | Manual, and often forgotten | Every Git commit is automatically a backup point |
+| Speed | Shared server resources, often slow | Global CDN, fast by default |
+| Breaking changes | A single plugin update can break the whole site | Tested code with easy rollback to any earlier version |
+| SSL (the padlock / https) | Often needs manual setup | Automatic and free |
 
-> 🗣️ **The client question you'll get:** "Why not just use WordPress?" Now you've got a real, structural answer.
+> 🗣️ **The client question you'll get:** "Why not just use WordPress?" Now you have a real, structural answer instead of just a preference.
 
 ---
 
@@ -80,18 +91,18 @@ A **CDN** copies your site's files to servers worldwide, so visitors get served 
 
 | | Plain HTML/CSS/JS | Next.js |
 |---|---|---|
-| Best for | A single simple page, quick mockups | Real multi-page client sites |
-| SEO performance | Manual work | Strong by default |
-| Works with Vercel | Manually | Built by the same company |
-| **This course's default** | Used only for understanding basics | **Used from Module 6 onward** |
+| Best for | A single simple page, or a quick mockup | Real, multi-page client sites |
+| SEO performance | Requires manual work | Strong by default |
+| Works with Vercel | Only with manual setup | Built by the same company that makes Vercel |
+| **This course's default** | Used only in this module, to understand the basics | **Used from Module 6 onward** |
 
-> ✅ From Module 6 on, everything is built in Next.js. That's the real standard.
+> ✅ From Module 6 onward, every project in this course is built in Next.js. That's the professional standard you're working toward.
 
 ---
 
 ## ✅ PROVE IT — Module 1 Quiz
 
-*(10 questions, 80% to pass)*
+You've now covered the five-step request loop, the four moving parts of any website, front-end vs back-end, what "the cloud" and CDNs really are, and why this course's stack beats WordPress on shared hosting. This quiz checks that it's actually stuck — you need 80% to move on to Module 2.
 
 1. Put the loop in order: [Server sends files] [Browser asks DNS] [Browser requests files] [DNS replies with IP] [Browser renders page]
    - Correct: Browser asks DNS → DNS replies with IP → Browser requests files → Server sends files → Browser renders page

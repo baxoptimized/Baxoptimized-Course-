@@ -1,5 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import Link from "next/link";
 
 import { getCurrentUser } from "@/lib/session";
@@ -355,7 +356,11 @@ export default async function LessonPage({
         </h1>
 
         {/* MDX body */}
-        <MDXRemote source={processedMdx} components={mdxComponents} />
+        <MDXRemote
+          source={processedMdx}
+          components={mdxComponents}
+          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+        />
 
         {/* ── Footer nav ──────────────────────────────────────────────── */}
         <div

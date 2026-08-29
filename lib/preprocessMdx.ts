@@ -23,9 +23,9 @@ export function preprocessMdx(content: string): string {
   // Matches:  > 🖼️ **DIAGRAM PLACEHOLDER:** *description text*
   // Variants: SCREENSHOT, GIF, SCREENSHOT/GIF, IMAGE, CODE WALKTHROUGH
   text = text.replace(
-    /^> 🖼️\s+\*\*(DIAGRAM|SCREENSHOT\/GIF|SCREENSHOT|GIF|IMAGE|CODE WALKTHROUGH) PLACEHOLDER\*\*:?\s*\*?([^*\n]*)\*?[ \t]*$/gm,
+    /^> 🖼️\s+\*\*(DIAGRAM|SCREENSHOT\/GIF|SCREENSHOT|GIF|IMAGE|CODE WALKTHROUGH) PLACEHOLDER:?\*\*:?\s*(.*)$/gm,
     (_, type, desc) => {
-      const cleanDesc = desc.trim();
+      const cleanDesc = desc.replace(/\*/g, "").trim();
       if (type === "DIAGRAM") {
         return `<DiagramPlaceholder description="${safe(cleanDesc)}" />`;
       }

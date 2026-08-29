@@ -196,8 +196,36 @@ function parseModule(content, filename) {
 
   for (let i = 0; i < sections.length; i++) {
     const sec = sections[i];
-    const content = sec.lines.join("\n").trim();
     const lessonSlug = `${slug}--${slugify(sec.title)}`;
+    const isQuizSection = /PROVE IT/i.test(sec.title);
+
+    let content;
+    if (isQuizSection) {
+      const quizLines = extractQuizBlock(sec.lines);
+      const qs = parseQuizQuestions(quizLines, filename);
+      quizQuestions.push(...qs);
+
+      // Lesson body must never include the answer key — only the
+      // introductory text before the first numbered question (if any),
+      // plus a teaser pointing at the real quiz page.
+      const firstQuestionIdx = sec.lines.findIndex((l) => /^\d+\.\s+/.test(l));
+      const intro = (firstQuestionIdx >= 0 ? sec.lines.slice(0, firstQuestionIdx) : sec.lines)
+        .join("\n")
+        .trim();
+      const mcCount = qs.filter((q) => q.type === "multiple_choice").length;
+      const reflectionCount = qs.filter((q) => q.type === "reflection").length;
+      const summary = [
+        mcCount > 0 ? `${mcCount} question${mcCount === 1 ? "" : "s"}` : null,
+        reflectionCount > 0 ? `${reflectionCount} reflection${reflectionCount === 1 ? "" : "s"}` : null,
+      ].filter(Boolean).join(" · ");
+
+      content = [
+        intro,
+        `You're ready to prove what you've learned. This is a real assessment — the answers aren't shown here, only on the quiz itself.${summary ? ` (${summary})` : ""}`,
+      ].filter(Boolean).join("\n\n").trim();
+    } else {
+      content = sec.lines.join("\n").trim();
+    }
 
     lessons.push({
       title: sec.title,
@@ -205,12 +233,6 @@ function parseModule(content, filename) {
       content,
       orderIndex: i,
     });
-
-    if (/PROVE IT/i.test(sec.title)) {
-      const quizLines = extractQuizBlock(sec.lines);
-      const qs = parseQuizQuestions(quizLines, filename);
-      quizQuestions.push(...qs);
-    }
   }
 
   return { slug, title, orderIndex, isStaffOnly, lessons, quizQuestions };

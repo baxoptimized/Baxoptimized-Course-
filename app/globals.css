@@ -1,30 +1,36 @@
 @import "tailwindcss";
 
-/* ─── Design-system palette ─────────────────────────────────────────────── */
+/* ─── Design-system palette ──────────────────────────────────────────────
+   Matches the Baxoptimized course marketing/checkout site this LMS is sold
+   from: near-black canvas, burnt-orange accent, off-white text. Gold is
+   demoted to a secondary "achievement" color (certificates, completed
+   badges) rather than the primary brand color. Token names kept as
+   "navy-*" / "accent" / "gold" to avoid touching every call site — only
+   the values changed. See CLAUDE_COURSE_REDESIGN_BRIEF.md Part 2. */
 :root {
-  /* Navy scale */
-  --color-navy-950: #080f1e;
-  --color-navy-900: #0d1628;
-  --color-navy-800: #142035;
-  --color-navy-700: #1c2d48;
-  --color-navy-600: #253a5e;
-  --color-navy-500: #2f4a77;
+  /* Canvas / ink scale (warm near-black, not blue-black) */
+  --color-navy-950: #0a0a0b;
+  --color-navy-900: #151312;
+  --color-navy-800: #1e1b19;
+  --color-navy-700: #2b2724;
+  --color-navy-600: #3d3733;
+  --color-navy-500: #57504a;
 
-  /* Accent — electric blue */
-  --color-accent: #4f7cf7;
-  --color-accent-hover: #3b6ae6;
-  --color-accent-subtle: #1e3a7a;
+  /* Accent — burnt orange (matches checkout site's #e8641a) */
+  --color-accent: #e8641a;
+  --color-accent-hover: #ff7a2e;
+  --color-accent-subtle: #3a2013;
 
-  /* Gold / premium highlight */
+  /* Gold / secondary "achievement" highlight (certificates, completed badges) */
   --color-gold: #f0a843;
   --color-gold-subtle: #3d2a10;
 
   /* Text */
-  --color-text-primary: #f0f4ff;
-  --color-text-secondary: #8da0bc;
-  --color-text-muted: #4d6278;
+  --color-text-primary: #f4f1ec;
+  --color-text-secondary: #b8b0a6;
+  --color-text-muted: #6b635b;
 
-  /* Semantic */
+  /* Semantic (unchanged — universal status colors, not brand identity) */
   --color-success: #34d399;
   --color-warning: #fbbf24;
   --color-error: #f87171;
@@ -35,6 +41,7 @@
 
   /* Typography */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Clash Display", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
 }
 
@@ -66,6 +73,7 @@
   --color-border: var(--color-border);
 
   --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
   --font-mono: var(--font-mono);
 }
 
@@ -80,6 +88,12 @@ html {
 
 body {
   min-height: 100vh;
+}
+
+/* ─── Display type — headings + "MODULE" numerals ───────────────────────── */
+h1, h2, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
 }
 
 /* Scrollbar */
@@ -145,7 +159,7 @@ body {
 
 /* ─── Lesson sidebar link hover ─────────────────────────────────────────── */
 .lesson-sidebar-link:hover:not(.lesson-sidebar-link--active) {
-  background: rgba(79, 124, 247, 0.05) !important;
+  background: rgba(232, 100, 26, 0.06) !important;
 }
 
 /* ─── GSAP reveal — reduced-motion override ─────────────────────────────── */
@@ -156,25 +170,9 @@ body {
   }
 }
 
-/* ─── Page transition (view transitions API) ────────────────────────────── */
-@view-transition {
-  navigation: auto;
-}
-::view-transition-old(root) {
-  animation: 200ms ease-in both fade-out;
-}
-::view-transition-new(root) {
-  animation: 300ms ease-out both fade-in;
-}
-@keyframes fade-out {
-  to { opacity: 0; }
-}
-@keyframes fade-in {
-  from { opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none;
-  }
-}
+/* Sitewide cross-document view transitions (@view-transition { navigation: auto })
+   were removed here: they only engage on renderer-initiated navigations (a link
+   click), not on a typed/reloaded URL, and hung indefinitely on the plain <a href>
+   lesson links in ModuleCard.tsx — the first click every paying student makes.
+   The browser feature is still flaky enough that the cosmetic fade isn't worth
+   the risk of a frozen tab. See CLAUDE_COURSE_REDESIGN_BRIEF.md Part 1b. */

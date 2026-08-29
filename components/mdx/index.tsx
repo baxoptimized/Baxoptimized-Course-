@@ -8,6 +8,8 @@ import { DiagramPlaceholder } from "./DiagramPlaceholder";
 import { MediaPlaceholder } from "./MediaPlaceholder";
 import { PromptCard } from "./PromptCard";
 import { StyledTable, Th, Td } from "./StyledTable";
+import { Terminal } from "./Terminal";
+import { URLBar } from "./URLBar";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -45,6 +47,8 @@ export const mdxComponents: MDXComponents = {
   PromptCard,
   Checkbox,
   Callout,
+  URLBar,
+  Terminal,
 
   // ── Blockquote → smart callout routing ───────────────────────────────────
   blockquote: ({ children }) => {

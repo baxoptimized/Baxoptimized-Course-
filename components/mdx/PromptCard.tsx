@@ -69,17 +69,17 @@ export function PromptCard({
       data-reveal="true"
       className="my-8 rounded-xl overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #0d1628 0%, #080f1e 100%)",
+        background: "linear-gradient(135deg, #151312 0%, #0a0a0b 100%)",
         border: "1px solid var(--color-accent)",
-        boxShadow: "0 0 0 1px rgba(79,124,247,0.10), 0 8px 32px rgba(79,124,247,0.12)",
+        boxShadow: "0 0 0 1px rgba(232,100,26,0.10), 0 8px 32px rgba(232,100,26,0.12)",
       }}
     >
       {/* Header bar */}
       <div
         className="flex items-center justify-between px-5 py-3"
         style={{
-          background: "rgba(79,124,247,0.10)",
-          borderBottom: "1px solid rgba(79,124,247,0.20)",
+          background: "rgba(232,100,26,0.10)",
+          borderBottom: "1px solid rgba(232,100,26,0.20)",
         }}
       >
         <div className="flex items-center gap-3">
@@ -110,9 +110,9 @@ export function PromptCard({
           aria-label="Copy prompt"
           className="flex items-center gap-1.5 rounded-md px-3 py-1 text-xs font-medium transition-all"
           style={{
-            background: copied ? "rgba(52,211,153,0.15)" : "rgba(79,124,247,0.15)",
+            background: copied ? "rgba(52,211,153,0.15)" : "rgba(232,100,26,0.15)",
             color: copied ? "var(--color-success)" : "var(--color-accent)",
-            border: `1px solid ${copied ? "rgba(52,211,153,0.30)" : "rgba(79,124,247,0.25)"}`,
+            border: `1px solid ${copied ? "rgba(52,211,153,0.30)" : "rgba(232,100,26,0.25)"}`,
           }}
         >
           {copied ? (

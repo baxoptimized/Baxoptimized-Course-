@@ -4,13 +4,13 @@
 // Flagged as needing real assets (printed to console in dev):
 //   - World map, heatmaps, annotated screenshots, balance scales, etc.
 
-const NAVY_800 = "#142035";
-const NAVY_700 = "#1c2d48";
-const NAVY_600 = "#253a5e";
-const ACCENT   = "#4f7cf7";
+const NAVY_800 = "#1e1b19";
+const NAVY_700 = "#2b2724";
+const NAVY_600 = "#3d3733";
+const ACCENT   = "#e8641a";
 const GOLD     = "#f0a843";
-const TEXT_PRI = "#f0f4ff";
-const TEXT_MUT = "#4d6278";
+const TEXT_PRI = "#f4f1ec";
+const TEXT_MUT = "#6b635b";
 
 // ── Detection helpers ─────────────────────────────────────────────────────────
 
@@ -181,7 +181,7 @@ function LayerDiagram({ nodes }: { nodes: string[] }) {
   const GAP = 6;
   const PAD = 40;
   const H = nodes.length * (LH + GAP) + 20;
-  const colors = [ACCENT, "#7c9ef7", "#a8bef9", "#c8d4fb", "#dde5fd"];
+  const colors = [ACCENT, "#f0895a", "#f5ac8c", "#f8cbb6", "#fbe3d6"];
 
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label="Layer diagram">

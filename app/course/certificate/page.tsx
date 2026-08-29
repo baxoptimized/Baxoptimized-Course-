@@ -42,7 +42,7 @@ export default async function CertificatePage() {
       <div
         className="certificate-screen-ui fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3"
         style={{
-          background:   "rgba(8,15,30,0.95)",
+          background:   "rgba(10,10,11,0.95)",
           backdropFilter: "blur(12px)",
           borderBottom: "1px solid rgba(255,255,255,0.08)",
         }}
@@ -63,7 +63,7 @@ export default async function CertificatePage() {
       {/* Certificate */}
       <div
         className="certificate-page min-h-screen flex items-center justify-center p-3 sm:p-8"
-        style={{ background: "#0d1526" }}
+        style={{ background: "#0a0a0b" }}
       >
         <div
           className="certificate-body relative w-full max-w-[780px]"

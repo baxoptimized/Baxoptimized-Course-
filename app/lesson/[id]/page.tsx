@@ -1,5 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getCurrentUser } from "@/lib/session";
 import { sql } from "@/lib/db";
 import { preprocessMdx } from "@/lib/preprocessMdx";
@@ -80,7 +81,11 @@ export default async function LessonPage({
       </header>
 
       <LessonShell title={lesson.title} moduleTitle={lesson.module_title}>
-        <MDXRemote source={processedMdx} components={mdxComponents} />
+        <MDXRemote
+          source={processedMdx}
+          components={mdxComponents}
+          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+        />
       </LessonShell>
     </>
   );

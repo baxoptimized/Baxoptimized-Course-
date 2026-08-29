@@ -371,7 +371,11 @@ export default async function QuizPage({
           </p>
         </div>
 
-        <QuizForm questions={questions} moduleSlug={moduleSlug} action={submitQuiz} />
+        <QuizForm
+          questions={questions.map(({ correct_answer_index: _correct_answer_index, ...q }) => q)}
+          moduleSlug={moduleSlug}
+          action={submitQuiz}
+        />
       </main>
     </div>
   );
