@@ -87,7 +87,7 @@ Vercel — the hosting platform this course is built on — does this automatica
 
 ---
 
-## 🆚 Next.js vs plain HTML/CSS/JS
+## ⚡ Next.js vs plain HTML/CSS/JS
 
 | | Plain HTML/CSS/JS | Next.js |
 |---|---|---|

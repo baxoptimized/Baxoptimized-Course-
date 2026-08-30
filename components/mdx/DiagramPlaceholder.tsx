@@ -236,7 +236,7 @@ function PlaceholderCard({ description }: { description: string }) {
   return (
     <div
       className="my-6 rounded-xl border-2 border-dashed flex flex-col items-center justify-center gap-3 py-8 px-6 text-center"
-      style={{ borderColor: NAVY_600, background: "rgba(20,32,53,0.5)" }}
+      style={{ borderColor: NAVY_600, background: "rgba(30,27,25,0.5)" }}
       data-reveal="true"
     >
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -272,7 +272,7 @@ export function DiagramPlaceholder({ description }: { description: string }) {
   if (nodes.length < 2) return <PlaceholderCard description={description} />;
 
   const wrapperClass = "my-6 rounded-xl overflow-hidden p-4";
-  const wrapperStyle = { background: "rgba(8,15,30,0.6)", border: `1px solid ${NAVY_700}` };
+  const wrapperStyle = { background: "rgba(10,10,11,0.6)", border: `1px solid ${NAVY_700}` };
 
   return (
     <figure data-reveal="true" className={wrapperClass} style={wrapperStyle}>

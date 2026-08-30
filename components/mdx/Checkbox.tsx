@@ -53,7 +53,7 @@ export function Checkbox({
         style={{
           background: checked ? "var(--color-accent)" : "var(--color-navy-800)",
           border: `1.5px solid ${checked ? "var(--color-accent)" : "var(--color-navy-600)"}`,
-          boxShadow: checked ? "0 0 0 3px rgba(79,124,247,0.15)" : undefined,
+          boxShadow: checked ? "0 0 0 3px rgba(232,100,26,0.15)" : undefined,
         }}
       >
         {checked && (

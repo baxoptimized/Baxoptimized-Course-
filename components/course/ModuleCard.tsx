@@ -104,7 +104,7 @@ export function ModuleCard({ mod, isLast }: { mod: ProcessedModule; isLast: bool
     <div
       className="module-card-inner relative ml-2 flex-1 rounded-xl p-5"
       style={{
-        background:  mod.isLocked ? "rgba(13,22,40,0.5)" : "var(--color-navy-900)",
+        background:  mod.isLocked ? "rgba(21,19,18,0.5)" : "var(--color-navy-900)",
         border:      `1px solid ${mod.isLocked ? "var(--color-navy-700)" : s.border + "44"}`,
         opacity:     mod.isLocked ? 0.65 : 1,
         transition:  "transform 0.2s ease, box-shadow 0.2s ease",
@@ -185,7 +185,7 @@ export function ModuleCard({ mod, isLast }: { mod: ProcessedModule; isLast: bool
       {/* Timeline spine */}
       <div className="relative flex flex-col items-center">
         <div
-          className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-xs font-bold tabular-nums"
+          className="font-display relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-semibold tabular-nums"
           style={{
             background:  s.badge.bg,
             color:       s.badge.color,

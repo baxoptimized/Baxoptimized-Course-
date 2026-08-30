@@ -1,9 +1,11 @@
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/session";
 import { sql } from "@/lib/db";
+import { parseModuleTitle } from "@/lib/moduleTitle";
 import { CourseNav } from "@/components/course/CourseNav";
 import { ModuleCard, type ProcessedModule } from "@/components/course/ModuleCard";
 import { CourseRail } from "@/components/course/CourseRail";
+import { AssistantWidget } from "@/components/course/AssistantWidget";
 
 // ── Raw DB row type ───────────────────────────────────────────────────────────
 
@@ -24,15 +26,6 @@ type ModuleRow = {
 };
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
-
-function parseTitle(raw: string): { num: string; cleanTitle: string } {
-  // "MODULE 3.5 — Some Title" or "OPERATOR MODULE — Some Title"
-  const regular  = raw.match(/^MODULE\s+([\d.]+)\s*[—–]\s*(.+)$/);
-  const operator = raw.match(/^OPERATOR MODULE\s*[—–]\s*(.+)$/);
-  if (regular)  return { num: regular[1],  cleanTitle: regular[2].trim() };
-  if (operator) return { num: "OPS",        cleanTitle: operator[1].trim() };
-  return { num: "?", cleanTitle: raw };
-}
 
 function buildModules(rows: ModuleRow[], role: string): ProcessedModule[] {
   const visible = rows.filter((m) => role !== "student" || !m.is_staff_only);
@@ -65,7 +58,7 @@ function buildModules(rows: ModuleRow[], role: string): ProcessedModule[] {
     const cleared = (!m.has_quiz || m.quiz_passed) && (!m.hard_gate || m.checkpoint_status === "approved");
     if (!cleared) chainBlocked = true;
 
-    const { num, cleanTitle } = parseTitle(m.title);
+    const { num, cleanTitle } = parseModuleTitle(m.title);
     return { ...m, num, cleanTitle, isLocked, status };
   });
 }
@@ -290,6 +283,16 @@ export default async function CoursePage() {
       />
 
       </div>
+
+      <AssistantWidget
+        progress={{
+          scope: "course",
+          pct,
+          doneLessons,
+          totalLessons,
+          currentModuleTitle: modules.find((m) => m.status === "in_progress")?.cleanTitle ?? null,
+        }}
+      />
     </div>
   );
 }

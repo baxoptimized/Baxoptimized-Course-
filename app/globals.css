@@ -88,6 +88,21 @@ html {
 
 body {
   min-height: 100vh;
+  position: relative;
+}
+
+/* ─── Grain texture — matches the main Baxoptimized site's subtle noise
+   overlay so flat dark surfaces read as considered, not just a solid fill.
+   Fixed + pointer-events:none so it never interferes with layout or clicks. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ─── Display type — headings + "MODULE" numerals ───────────────────────── */
@@ -141,7 +156,7 @@ h1, h2, .font-display {
 
 /* Tables: alternate row shading */
 .lesson-table tbody tr:nth-child(even) td {
-  background: rgba(28, 45, 72, 0.25);
+  background: rgba(43,39,36, 0.25);
 }
 .lesson-table thead th:first-child { border-radius: 0; }
 .lesson-table thead th:last-child  { border-radius: 0; }

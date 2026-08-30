@@ -58,7 +58,7 @@ export function Td({ children }: { children: ReactNode }) {
       className="px-4 py-3 leading-relaxed"
       style={{
         color: "var(--color-text-secondary)",
-        borderBottom: "1px solid rgba(28,45,72,0.6)",
+        borderBottom: "1px solid rgba(43,39,36,0.6)",
         verticalAlign: "top",
       }}
     >

@@ -14,7 +14,7 @@ export default function CourseLoading() {
       <div
         className="sticky top-0 z-40 flex items-center justify-between px-5 py-3"
         style={{
-          background:   "rgba(8,15,30,0.90)",
+          background:   "rgba(10,10,11,0.90)",
           backdropFilter: "blur(12px)",
           borderBottom: "1px solid var(--color-navy-700)",
           minHeight:    "49px",

@@ -6,9 +6,11 @@ import Link from "next/link";
 import { getCurrentUser } from "@/lib/session";
 import { sql } from "@/lib/db";
 import { preprocessMdx } from "@/lib/preprocessMdx";
+import { parseModuleTitle } from "@/lib/moduleTitle";
 import { mdxComponents } from "@/components/mdx";
 import { LessonLayout } from "@/components/lesson/LessonLayout";
 import { MarkCompleteButton } from "@/components/lesson/MarkCompleteButton";
+import { AssistantWidget } from "@/components/course/AssistantWidget";
 import LogoutButton from "@/components/LogoutButton";
 import { markLessonComplete } from "./actions";
 
@@ -66,16 +68,20 @@ function Sidebar({
   const doneCount = lessons.filter((l) => l.is_complete).length;
   const currentIdx = lessons.findIndex((l) => l.id === currentId);
   const lessonNum = currentIdx + 1;
+  const { num: moduleNum, cleanTitle: moduleCleanTitle } = parseModuleTitle(moduleTitle);
 
   return (
     <div className="flex flex-col h-full">
       {/* Module header */}
       <div className="px-5 py-5" style={{ borderBottom: "1px solid var(--color-navy-700)" }}>
         <p
-          className="mb-1 text-[10px] font-bold uppercase tracking-widest"
+          className="font-display mb-1 text-[10px] font-bold uppercase tracking-widest"
           style={{ color: "var(--color-gold)" }}
         >
-          {moduleTitle}
+          Module {moduleNum}
+        </p>
+        <p className="mb-2 text-sm font-medium leading-snug" style={{ color: "var(--color-text-primary)" }}>
+          {moduleCleanTitle}
         </p>
         <p className="text-xs" style={{ color: "var(--color-text-muted)" }}>
           Lesson{" "}
@@ -102,7 +108,7 @@ function Sidebar({
               className={`lesson-sidebar-link flex items-start gap-3 px-4 py-2.5 text-xs leading-snug${isCurrent ? " lesson-sidebar-link--active" : ""}`}
               style={{
                 textDecoration: "none",
-                background: isCurrent ? "rgba(79,124,247,0.10)" : undefined,
+                background: isCurrent ? "rgba(232,100,26,0.10)" : undefined,
                 borderLeft: isCurrent
                   ? "2px solid var(--color-accent)"
                   : "2px solid transparent",
@@ -285,7 +291,7 @@ export default async function LessonPage({
       <header
         className="sticky top-0 z-40 flex items-center justify-between px-5 py-3"
         style={{
-          background:     "rgba(8,15,30,0.90)",
+          background:     "rgba(10,10,11,0.90)",
           backdropFilter: "blur(12px)",
           borderBottom:   "1px solid var(--color-navy-700)",
           height:         "49px",
@@ -293,7 +299,7 @@ export default async function LessonPage({
       >
         <Link
           href="/course"
-          className="text-xs font-bold uppercase tracking-widest"
+          className="font-display text-sm font-semibold uppercase tracking-wide"
           style={{ color: "var(--color-gold)", textDecoration: "none" }}
         >
           Baxoptimized
@@ -334,10 +340,10 @@ export default async function LessonPage({
           aria-hidden="true"
         >
           <p
-            className="text-xs font-semibold uppercase tracking-widest truncate"
+            className="font-display text-xs font-semibold uppercase tracking-widest truncate"
             style={{ color: "var(--color-gold)" }}
           >
-            {lesson.module_title}
+            Module {parseModuleTitle(lesson.module_title).num}
           </p>
           <span
             className="ml-4 shrink-0 text-xs tabular-nums"
@@ -413,6 +419,16 @@ export default async function LessonPage({
           </p>
         )}
       </LessonLayout>
+
+      <AssistantWidget
+        progress={{
+          scope: "module",
+          pct: siblings.length > 0 ? Math.round((siblings.filter((l) => l.is_complete).length / siblings.length) * 100) : 0,
+          doneLessons: siblings.filter((l) => l.is_complete).length,
+          totalLessons: siblings.length,
+          currentModuleTitle: parseModuleTitle(lesson.module_title).cleanTitle,
+        }}
+      />
     </div>
   );
 }

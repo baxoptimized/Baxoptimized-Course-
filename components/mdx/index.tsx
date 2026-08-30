@@ -107,7 +107,7 @@ export const mdxComponents: MDXComponents = {
           className="mt-4 h-px"
           style={{
             background:
-              "linear-gradient(to right, var(--color-accent) 0%, rgba(79,124,247,0.15) 40%, transparent 100%)",
+              "linear-gradient(to right, var(--color-accent) 0%, rgba(232,100,26,0.15) 40%, transparent 100%)",
           }}
         />
       </div>
@@ -173,7 +173,7 @@ export const mdxComponents: MDXComponents = {
     <tbody>{children as ReactNode}</tbody>
   ),
   tr: ({ children }) => (
-    <tr className="transition-colors hover:bg-[rgba(79,124,247,0.04)]">
+    <tr className="transition-colors hover:bg-[rgba(232,100,26,0.04)]">
       {children as ReactNode}
     </tr>
   ),

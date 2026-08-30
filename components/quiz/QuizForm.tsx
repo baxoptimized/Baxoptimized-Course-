@@ -67,7 +67,7 @@ function OptionCard({
     <label
       className="flex cursor-pointer items-start gap-4 rounded-lg px-4 py-3.5 transition-all"
       style={{
-        background:  selected ? "rgba(79,124,247,0.08)" : "var(--color-navy-800)",
+        background:  selected ? "rgba(232,100,26,0.08)" : "var(--color-navy-800)",
         border:      `1px solid ${selected ? "var(--color-accent)" : "var(--color-navy-600)"}`,
         boxShadow:   selected ? "0 0 0 1px var(--color-accent)" : "none",
       }}

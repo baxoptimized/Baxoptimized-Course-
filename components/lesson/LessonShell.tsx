@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
+import { parseModuleTitle } from "@/lib/moduleTitle";
 
 // ── Scroll progress bar ───────────────────────────────────────────────────────
 
@@ -88,6 +89,7 @@ export function LessonShell({
 }) {
   const contentRef = useRef<HTMLDivElement>(null);
   useScrollReveal(contentRef);
+  const parsed = moduleTitle ? parseModuleTitle(moduleTitle) : null;
 
   return (
     <>
@@ -98,9 +100,9 @@ export function LessonShell({
         style={{ color: "var(--color-text-primary)" }}
       >
         {/* Breadcrumb */}
-        {moduleTitle && (
-          <p className="mb-4 text-xs uppercase tracking-widest font-semibold" style={{ color: "var(--color-gold)" }}>
-            {moduleTitle}
+        {parsed && (
+          <p className="font-display mb-4 text-xs uppercase tracking-widest font-semibold" style={{ color: "var(--color-gold)" }}>
+            Module {parsed.num} <span style={{ color: "var(--color-text-muted)", textTransform: "none", letterSpacing: "normal" }}>· {parsed.cleanTitle}</span>
           </p>
         )}
 

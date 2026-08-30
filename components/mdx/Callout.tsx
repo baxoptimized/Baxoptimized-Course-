@@ -44,7 +44,7 @@ const TYPES: Record<CalloutType, TypeDef> = {
     label: "Tip",
     icon: <LightbulbIcon />,
     borderColor: "var(--color-accent)",
-    bgColor: "rgba(79,124,247,0.08)",
+    bgColor: "rgba(232,100,26,0.08)",
     labelColor: "var(--color-accent)",
   },
   warning: {
@@ -66,7 +66,7 @@ const TYPES: Record<CalloutType, TypeDef> = {
     label: "Connects to",
     icon: <LinkIcon />,
     borderColor: "var(--color-navy-500)",
-    bgColor: "rgba(47,74,119,0.25)",
+    bgColor: "rgba(87,80,74,0.25)",
     labelColor: "var(--color-text-secondary)",
   },
   practical: {
@@ -88,7 +88,7 @@ const TYPES: Record<CalloutType, TypeDef> = {
     label: "Note",
     icon: <PinIcon />,
     borderColor: "var(--color-navy-600)",
-    bgColor: "rgba(37,58,94,0.30)",
+    bgColor: "rgba(61,55,51,0.30)",
     labelColor: "var(--color-text-muted)",
   },
   lock: {
@@ -102,7 +102,7 @@ const TYPES: Record<CalloutType, TypeDef> = {
     label: "Note",
     icon: <InfoIcon />,
     borderColor: "var(--color-navy-600)",
-    bgColor: "rgba(37,58,94,0.30)",
+    bgColor: "rgba(61,55,51,0.30)",
     labelColor: "var(--color-text-muted)",
   },
 };

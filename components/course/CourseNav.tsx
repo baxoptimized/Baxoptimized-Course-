@@ -13,7 +13,7 @@ export function CourseNav({
     <header
       className="sticky top-0 z-40 flex items-center justify-between px-5 py-3"
       style={{
-        background:     "rgba(8,15,30,0.90)",
+        background:     "rgba(10,10,11,0.90)",
         backdropFilter: "blur(12px)",
         borderBottom:   "1px solid var(--color-navy-700)",
         minHeight:      "49px",
@@ -21,7 +21,7 @@ export function CourseNav({
     >
       <Link
         href="/course"
-        className="text-xs font-bold uppercase tracking-widest"
+        className="font-display text-sm font-semibold uppercase tracking-wide"
         style={{ color: "var(--color-gold)", textDecoration: "none" }}
       >
         Baxoptimized

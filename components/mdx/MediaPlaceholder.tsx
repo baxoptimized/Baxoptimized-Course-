@@ -43,7 +43,7 @@ export function MediaPlaceholder({
       className={`my-6 rounded-xl border-2 border-dashed flex flex-col items-center justify-center gap-3 px-8 text-center ${aspect}`}
       style={{
         borderColor: "var(--color-navy-600)",
-        background: "rgba(20,32,53,0.5)",
+        background: "rgba(30,27,25,0.5)",
       }}
       aria-label={description || label}
     >

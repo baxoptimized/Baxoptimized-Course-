@@ -357,8 +357,8 @@ export default async function QuizPage({
         <div
           className="mb-8 flex items-center gap-3 rounded-lg px-4 py-3"
           style={{
-            background: "rgba(79,124,247,0.07)",
-            border:     "1px solid rgba(79,124,247,0.18)",
+            background: "rgba(232,100,26,0.07)",
+            border:     "1px solid rgba(232,100,26,0.18)",
           }}
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
