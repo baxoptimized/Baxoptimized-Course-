@@ -1,8 +1,8 @@
-# MODULE 10 — Deploying to Vercel
+# MODULE 10: Deploying to Vercel
 
 **Format:** Short chunks + step-by-step screenshots
 **Unlocks:** Module 11
-**Gate to pass:** HARD GATE — submit your live .vercel.app URL
+**Gate to pass:** HARD GATE: submit your live .vercel.app URL
 
 ---
 
@@ -15,16 +15,16 @@
 
 ---
 
-## ⚙️ Project settings — don't skip the env vars
+## ⚙️ Project settings: don't skip the env vars
 
 | Setting | Action |
 |---|---|
-| Project name | Becomes your URL — leave or customise |
-| Framework preset | Auto-detected as Next.js — leave it |
+| Project name | Becomes your URL; leave or customise |
+| Framework preset | Auto-detected as Next.js; leave it |
 | Root directory | Default |
 | Build settings | Default for Next.js |
 
-**⚠️ Critical — Environment Variables.** Add the same two from `.env.local` (Module 8):
+**⚠️ Critical: Environment Variables.** Add the same two from `.env.local` (Module 8):
 ```
 RESEND_API_KEY=re_your_key
 LEAD_TO_EMAIL=client@theiremail.com.au
@@ -53,7 +53,7 @@ git push
 # Vercel auto-detects this and redeploys within ~60 seconds
 ```
 
-> 🔀 **Preview deployments:** pushing to a non-`main` branch creates a separate preview URL — perfect for showing a client a change before it goes live.
+> 🔀 **Preview deployments:** pushing to a non-`main` branch creates a separate preview URL: perfect for showing a client a change before it goes live.
 
 ---
 
@@ -68,7 +68,7 @@ git push
 
 ---
 
-## ✅ PROVE IT — Module 10 Practical Checkpoint (HARD GATE)
+## ✅ PROVE IT: Module 10 Practical Checkpoint (HARD GATE)
 
 **Submit:**
 - [ ] Your live `.vercel.app` URL
@@ -112,4 +112,4 @@ git push
    - c) Only matters for big teams
    - d) Slows down deployment
 
-**Next: Module 11 — Linking the Domain & Email →**
+**Next: Module 11, Linking the Domain & Email →**

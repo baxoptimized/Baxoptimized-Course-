@@ -1,4 +1,4 @@
-# MODULE 7 — Refining in VS Code with Claude Code
+# MODULE 7: Refining in VS Code with Claude Code
 
 **Format:** Short chunks + prompt cards
 **Unlocks:** Module 7.5
@@ -12,15 +12,15 @@
 code ~/clients/smith-building
 ```
 
-Right-click your homepage file → **"Open with Live Server"** — auto-refreshes on every save.
+Right-click your homepage file → **"Open with Live Server"**: auto-refreshes on every save.
 
-> 🔄 Keep Live Server open throughout the build — it's how you see changes in real time.
+> 🔄 Keep Live Server open throughout the build: it's how you see changes in real time.
 
 ---
 
 ## 🤖 Real refinements with Claude Code
 
-**🤖 PROMPT CARDS — common refinements:**
+**🤖 PROMPT CARDS: common refinements:**
 
 ```
 Make the navigation bar sticky, so it stays visible at the top as the
@@ -29,7 +29,7 @@ visitor scrolls down.
 
 ```
 On mobile only, increase the padding inside the [section] cards, and
-increase the gap between them — they currently feel cramped on a
+increase the gap between them: they currently feel cramped on a
 narrow screen.
 ```
 
@@ -44,7 +44,7 @@ and apply the exact same patterns to [target page] so they feel like
 the same site.
 ```
 
-> 🎯 Every one is specific — exact element, exact change, exact constraint. Module 3's anatomy, applied.
+> 🎯 Every one is specific: exact element, exact change, exact constraint. Module 3's anatomy, applied.
 
 ---
 
@@ -62,8 +62,8 @@ Not every change needs AI:
 ## 🖼️ Image optimisation checklist
 
 Before any image goes in the project:
-- [ ] Compressed via **TinyPNG** or **Squoosh** — under 500KB, ideally much less
-- [ ] Renamed descriptively — `kitchen-renovation-thirroul.jpg`, not `IMG_4392.jpg`
+- [ ] Compressed via **TinyPNG** or **Squoosh**: under 500KB, ideally much less
+- [ ] Renamed descriptively: `kitchen-renovation-thirroul.jpg`, not `IMG_4392.jpg`
 - [ ] Has alt text in the code
 
 > 🔗 This connects directly to Module 2 (SEO) and Module 12 (PageSpeed).
@@ -75,13 +75,13 @@ Before any image goes in the project:
 Run this before every push, forever:
 - [ ] Every page on **desktop**
 - [ ] Every page on **mobile**
-- [ ] Every link clicked — nothing broken
+- [ ] Every link clicked: nothing broken
 - [ ] No placeholder text ("Lorem ipsum," "TODO," leftover brackets)
 - [ ] Images optimised and loading
 
 ---
 
-## ✅ PROVE IT — Module 7 Quiz + Practical
+## ✅ PROVE IT: Module 7 Quiz + Practical
 
 ### Quiz (8 questions, 80% to pass)
 
@@ -119,11 +119,11 @@ Run this before every push, forever:
    - c) Searching for placeholder text
    - d) Posting to social media ✅
 
-7. "On mobile only, increase padding inside services cards" — which principle?
+7. "On mobile only, increase padding inside services cards": which principle?
    - a) Vagueness
    - b) Specificity ✅
    - c) Negative examples
-   - d) None — weak prompt
+   - d) None, weak prompt
 
 8. Why compress images before adding them?
    - a) Purely cosmetic
@@ -138,4 +138,4 @@ Run this before every push, forever:
 - [ ] Screenshot of refined site on mobile
 - [ ] A note on 3 refinements you made
 
-**Next: Module 7.5 — Making It Look Like a $50k Site →**
+**Next: Module 7.5: Making It Look Like a $50k Site →**

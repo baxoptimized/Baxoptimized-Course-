@@ -1,4 +1,4 @@
-# MODULE 3 — Talking to AI: Prompt Engineering Mastery
+# MODULE 3: Talking to AI: Prompt Engineering Mastery
 
 **Format:** Short chunks + real prompt examples
 **Unlocks:** Module 4
@@ -21,7 +21,7 @@ Every technique in this module exists because of these two facts.
 
 ## 🔬 The anatomy of a great prompt
 
-> 🖼️ **DIAGRAM PLACEHOLDER:** A real prompt, colour-coded by section — six highlight colours over Role / Context / Task / Constraints / Format / Examples.
+> 🖼️ **DIAGRAM PLACEHOLDER:** A real prompt, colour-coded by section: six highlight colours over Role / Context / Task / Constraints / Format / Examples.
 
 | Part | Answers | Example fragment |
 |---|---|---|
@@ -32,19 +32,19 @@ Every technique in this module exists because of these two facts.
 | **Format** | How should output look? | "Output as a single Next.js page component" |
 | **Examples** | Show, don't just tell | A reference site, a "don't do this" example |
 
-> 💡 Not every prompt needs all six — a quick question doesn't need a "role." But for anything substantial, hitting most of these is what gets it right the first time.
+> 💡 Not every prompt needs all six: a quick question doesn't need a "role." But for anything substantial, hitting most of these is what gets it right the first time.
 
 ---
 
 ## ⭐ The 5 Baxoptimized prompting principles
 
 1. **Be specific, not vague.** "Make it professional" → "Clean two-column layout, navy and white, photography-led"
-2. **Give positive AND negative examples.** "Like a modern builder site — NOT like a generic stock-photo template"
+2. **Give positive AND negative examples.** "Like a modern builder site, NOT like a generic stock-photo template"
 3. **Encourage step-by-step reasoning.** "Walk me through what's causing this error before fixing it"
 4. **Request specific output formats.** Tell it exactly what shape you want the answer in
-5. **Iterate, don't restart.** "Keep everything, but make the CTA bigger" — not throwing away an 80%-right result
+5. **Iterate, don't restart.** "Keep everything, but make the CTA bigger": not throwing away an 80%-right result
 
-> 🔁 You'll use every one of these for the rest of this course — and the rest of your career.
+> 🔁 You'll use every one of these for the rest of this course, and the rest of your career.
 
 ---
 
@@ -55,8 +55,8 @@ Every technique in this module exists because of these two facts.
 | Tool | For | When |
 |---|---|---|
 | **Claude Projects** | Persistent context across chats | Set up per client, used throughout |
-| **Claude Design** | Generating from a blank description | Module 6 — building from scratch |
-| **Claude Code** | Editing existing project files | Module 7 onward — every refinement |
+| **Claude Design** | Generating from a blank description | Module 6: building from scratch |
+| **Claude Code** | Editing existing project files | Module 7 onward: every refinement |
 
 > 🎯 **Rule of thumb: Claude Design to create from blank. Claude Code to refine what exists.**
 
@@ -65,8 +65,8 @@ Every technique in this module exists because of these two facts.
 ## 🐛 Debugging with AI
 
 **Three rules:**
-1. **Paste the exact error message**, word for word — never summarise
-2. **Describe expected vs. actual behaviour** — "I expected X, instead Y happened"
+1. **Paste the exact error message**, word for word: never summarise
+2. **Describe expected vs. actual behaviour**: "I expected X, instead Y happened"
 3. **Ask it to explain before fixing anything**
 
 **🤖 PROMPT CARD:**
@@ -84,29 +84,29 @@ Before you fix anything, explain what you think is causing this.
 
 ## 📚 How to use this course's Prompt Library
 
-- Every prompt has `[bracketed placeholders]` — always fill them in
-- Every prompt has an annotation explaining *why* it's built that way — read these
-- Some prompts have **AHPRA-safe variants**, clearly flagged — use the right one for health practitioner clients
+- Every prompt has `[bracketed placeholders]`: always fill them in
+- Every prompt has an annotation explaining *why* it's built that way: read these
+- Some prompts have **AHPRA-safe variants**, clearly flagged: use the right one for health practitioner clients
 
 ---
 
 ## 🚫 What NOT to do
 
-- ❌ **Blindly trusting output** — confident ≠ correct
-- ❌ **Vague prompts** — specificity is your job, not AI's
-- ❌ **Accepting code you don't understand** — if you can't explain it, ask before using it
+- ❌ **Blindly trusting output**: confident ≠ correct
+- ❌ **Vague prompts**: specificity is your job, not AI's
+- ❌ **Accepting code you don't understand**: if you can't explain it, ask before using it
 
 > ⚠️ Direct well AND check the work. Skip either half and you ship things you can't stand behind.
 
 ---
 
-## ✅ PROVE IT — Module 3 Quiz + Graded Practical
+## ✅ PROVE IT: Module 3 Quiz + Graded Practical
 
 ### Quiz (10 questions, 80% to pass)
 
 1. Why does AI sometimes confidently state something incorrect?
    - a) It's deliberately lying
-   - b) It's predicting a plausible answer — plausible isn't always correct ✅
+   - b) It's predicting a plausible answer: plausible isn't always correct ✅
    - c) Only old models do this
    - d) It never happens
 
@@ -162,7 +162,7 @@ Before you fix anything, explain what you think is causing this.
     - c) Asking too many questions
     - d) Using Claude Design instead of Code
 
-### Graded Practical — Fix 3 Bad Prompts
+### Graded Practical: Fix 3 Bad Prompts
 
 Rewrite each using the anatomy + at least 2 principles:
 1. *"Make a website for a builder."*
@@ -175,4 +175,4 @@ Rewrite each using the anatomy + at least 2 principles:
 - [ ] At least one constraint or format instruction
 - [ ] A stranger reading it would know exactly what output to expect
 
-**Next: Module 4 — Setting Up Your Toolkit →**
+**Next: Module 4, Setting Up Your Toolkit →**

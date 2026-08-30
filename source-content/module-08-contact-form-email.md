@@ -1,8 +1,8 @@
-# MODULE 8 — The Contact Form & Email System
+# MODULE 8: The Contact Form & Email System
 
 **Format:** Short chunks + code walkthrough
 **Unlocks:** Module 9
-**Gate to pass:** HARD GATE — submit proof the form sent a real email
+**Gate to pass:** HARD GATE: submit proof the form sent a real email
 
 > ⚠️ **A beautiful site with a silently-failing form is worse than no website.** This never ships broken.
 
@@ -10,7 +10,7 @@
 
 ## 🔗 How a contact form actually works
 
-> 🖼️ **DIAGRAM PLACEHOLDER:** Five-step flow — Visitor fills form (front-end) → Submits → Route handler (back-end, Vercel) → Resend → Client's inbox (reply-to = the lead).
+> 🖼️ **DIAGRAM PLACEHOLDER:** Five-step flow: Visitor fills form (front-end) → Submits → Route handler (back-end, Vercel) → Resend → Client's inbox (reply-to = the lead).
 
 Form → route handler → Resend → client's inbox → client replies directly to the lead. Every site, forever, uses this exact path.
 
@@ -31,7 +31,7 @@ LEAD_TO_EMAIL=client@theiremail.com.au
 ```
 
 > 🔑 `RESEND_API_KEY` never changes per client. `LEAD_TO_EMAIL` changes every time.
-> ⏭️ We'll add both again in Vercel in Module 10 — local and production both need them.
+> ⏭️ We'll add both again in Vercel in Module 10: local and production both need them.
 
 ---
 
@@ -61,7 +61,7 @@ export async function POST(req) {
       from: 'New Website Enquiry <forms@yourdomain.com.au>',
       to: [process.env.LEAD_TO_EMAIL],
       replyTo: email,
-      subject: `New enquiry${interest ? ` — ${interest}` : ''} from ${name}`,
+      subject: `New enquiry${interest ? `: ${interest}` : ''} from ${name}`,
       text:
         `New website enquiry:\n\n` +
         `Name: ${name}\nEmail: ${email}\nPhone: ${phone || '-'}\n` +
@@ -83,7 +83,7 @@ export async function POST(req) {
 | Name/email check | Stops a broken email from sending |
 | `from` | Your verified domain, never the client's |
 | `to` | The client's inbox |
-| `replyTo` | The lead's email — client replies straight to them |
+| `replyTo` | The lead's email: client replies straight to them |
 
 > 🧠 You should be able to explain every line before using it. If a line doesn't make sense, ask Claude to explain it.
 
@@ -94,7 +94,7 @@ export async function POST(req) {
 **🤖 PROMPT CARD:**
 ```
 Wire up the contact form on the Contact page to POST to /api/contact as
-JSON. Include a hidden honeypot field named "company" — visually hidden
+JSON. Include a hidden honeypot field named "company", visually hidden
 using CSS positioning (not type="hidden", since bots skip that), with
 aria-hidden="true". On success, show a clear success message. On
 failure, show an error asking them to call instead. Include an
@@ -113,21 +113,21 @@ website.
 
 ---
 
-## 🛡️ Spam protection — why it works
+## 🛡️ Spam protection: why it works
 
 > 🛡️ The honeypot catches the vast majority of basic bots, free, with zero friction for real visitors. If a client's form ever gets hit harder (rare for small local business sites), **Cloudflare Turnstile** is the free next step up.
 
 ---
 
-## 🧪 Testing it properly — the moment that matters
+## 🧪 Testing it properly: the moment that matters
 
 1. `npm run dev`
 2. Fill out the form with real test details, submit
 3. Confirm success message
-4. Check the **`LEAD_TO_EMAIL` inbox** — including **spam** on this first test
+4. Check the **`LEAD_TO_EMAIL` inbox**, including **spam**, on this first test
 5. Confirm sender = your verified domain, reply-to = your test email
 
-**If it doesn't arrive — check in order:**
+**If it doesn't arrive, check in order:**
 - [ ] Is `RESEND_API_KEY` correct?
 - [ ] Is `LEAD_TO_EMAIL` set and spelled right?
 - [ ] Does Resend still show **Verified**?
@@ -135,7 +135,7 @@ website.
 
 ---
 
-## ✅ PROVE IT — Module 8 Practical Checkpoint (HARD GATE)
+## ✅ PROVE IT: Module 8 Practical Checkpoint (HARD GATE)
 
 **Submit:**
 - [ ] Screenshot of the success message
@@ -178,4 +178,4 @@ website.
    - c) Resubmit 20 times
    - d) No way to troubleshoot
 
-**Next: Module 9 — Version Control & Pushing to GitHub →**
+**Next: Module 9: Version Control & Pushing to GitHub →**

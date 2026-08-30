@@ -1,4 +1,4 @@
-# MODULE 5 — Design That Converts: Principles Before Pixels
+# MODULE 5: Design That Converts: Principles Before Pixels
 
 **Format:** Short chunks + visual examples
 **Unlocks:** Module 6 (the build-along begins)
@@ -35,12 +35,12 @@ Not "impressive." Just these:
 
 ## 🎨 Typography & colour
 
-> 🖼️ **IMAGE PLACEHOLDER:** The Daily Strength Company palette swatches — cream, linen, coral, apricot, gold, sky, sage, warm charcoal — each labelled with its use, as a worked example of restraint.
+> 🖼️ **IMAGE PLACEHOLDER:** The Daily Strength Company palette swatches (cream, linen, coral, apricot, gold, sky, sage, warm charcoal), each labelled with its use, as a worked example of restraint.
 
-> 🔤 **Two fonts max** — one heading, one body.
-> 🎨 **Small, deliberate palette** — primary, neutral background, text colour, one accent for CTAs.
+> 🔤 **Two fonts max**: one heading, one body.
+> 🎨 **Small, deliberate palette**: primary, neutral background, text colour, one accent for CTAs.
 
-**For Smith Building Co:** navy, charcoal, warm neutrals — trustworthy and established, not playful.
+**For Smith Building Co:** navy, charcoal, warm neutrals: trustworthy and established, not playful.
 
 ---
 
@@ -48,7 +48,7 @@ Not "impressive." Just these:
 
 > 🖼️ **GIF PLACEHOLDER:** Same homepage shown narrow-first, then expanding to desktop width.
 
-> 📱 **60%+ of traffic is mobile.** Design the narrow version first, then expand — not the reverse.
+> 📱 **60%+ of traffic is mobile.** Design the narrow version first, then expand, not the reverse.
 
 1. Design at mobile width first
 2. Confirm hero, phone number, CTA all work narrow
@@ -56,7 +56,7 @@ Not "impressive." Just these:
 
 ---
 
-## 🛡️ Trust signals — exact placement
+## 🛡️ Trust signals: exact placement
 
 > 🖼️ **DIAGRAM PLACEHOLDER:** Annotated homepage wireframe with callouts pointing to each element below.
 
@@ -77,14 +77,14 @@ Not "impressive." Just these:
 **The translation process:**
 1. Take the vague word ("professional," "premium")
 2. Ask: compared to what? Which direction?
-3. Pick a lane — minimal vs warm vs bold
+3. Pick a lane: minimal vs warm vs bold
 4. Translate into actual choices: colour, type, photography, density
 
 > **For Smith Building Co:** "professional, beats competitors on credibility" → navy + charcoal, real photography, minimal decoration. Reads as established and serious.
 
 ---
 
-## ✅ PROVE IT — Module 5 Quiz + Practical
+## ✅ PROVE IT: Module 5 Quiz + Practical
 
 ### Quiz (8 questions, 80% to pass)
 
@@ -94,7 +94,7 @@ Not "impressive." Just these:
    - c) Maximum features
    - d) Latest trend
 
-2. F-pattern — where does important content go?
+2. F-pattern: where does important content go?
    - a) Bottom right
    - b) Top-left and top-centre ✅
    - c) Spread evenly
@@ -116,7 +116,7 @@ Not "impressive." Just these:
    - a) Footer only
    - b) Header, every page, `tel:` link on mobile ✅
    - c) Contact page only
-   - d) Nowhere — forms suffice
+   - d) Nowhere: forms suffice
 
 6. Why testimonials right before a CTA?
    - a) Decorative
@@ -125,7 +125,7 @@ Not "impressive." Just these:
    - d) No reason
 
 7. What does whitespace do?
-   - a) Nothing — wasted
+   - a) Nothing, wasted
    - b) Makes content easier to absorb, feels premium ✅
    - c) Only matters in print
    - d) Should be minimised
@@ -138,7 +138,7 @@ Not "impressive." Just these:
 
 ### Practical Checkpoint
 
-Mark up a labelled wireframe of the Smith Building Co homepage — top to bottom, what goes where and why.
+Mark up a labelled wireframe of the Smith Building Co homepage: top to bottom, what goes where and why.
 
 **Self-check:**
 - [ ] Phone number appears more than once
@@ -146,4 +146,4 @@ Mark up a labelled wireframe of the Smith Building Co homepage — top to bottom
 - [ ] Trust elements appear high, not just at the bottom
 - [ ] Layout follows F-pattern priority
 
-**Next: Module 6 — Building the Site in Claude Design →**
+**Next: Module 6: Building the Site in Claude Design →**

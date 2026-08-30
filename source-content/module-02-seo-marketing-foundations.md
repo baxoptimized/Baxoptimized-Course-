@@ -1,4 +1,4 @@
-# MODULE 2 — How Websites Get Found: SEO & Marketing Foundations
+# MODULE 2: How Websites Get Found: SEO & Marketing Foundations
 
 **Format:** Short chunks + diagrams
 **Unlocks:** Module 3
@@ -8,7 +8,7 @@
 
 ## 🎯 What SEO actually is
 
-> 🖼️ **DIAGRAM PLACEHOLDER:** Three connected circles — Find, Understand, Trust — each with example tasks listed inside.
+> 🖼️ **DIAGRAM PLACEHOLDER:** Three connected circles (Find, Understand, Trust), each with example tasks listed inside.
 
 SEO = making it easy for Google to **Find** every page, **Understand** what each page is about, and **Trust** the site as credible.
 
@@ -24,7 +24,7 @@ SEO = making it easy for Google to **Find** every page, **Understand** what each
 
 ## 📍 How Google ranks local businesses
 
-> 🖼️ **DIAGRAM PLACEHOLDER:** A balance scale — Relevance, Distance, Prominence — with Distance greyed out ("can't change this") and the other two highlighted ("you control these").
+> 🖼️ **DIAGRAM PLACEHOLDER:** A balance scale (Relevance, Distance, Prominence) with Distance greyed out ("can't change this") and the other two highlighted ("you control these").
 
 | Factor | Driven by | Can you influence it? |
 |---|---|---|
@@ -36,7 +36,7 @@ SEO = making it easy for Google to **Find** every page, **Understand** what each
 
 ---
 
-## 📝 On-page SEO — the real checklist
+## 📝 On-page SEO: the real checklist
 
 > 🖼️ **SCREENSHOT PLACEHOLDER:** An annotated Google search result, arrows pointing to exactly which text is the title tag vs. the meta description.
 
@@ -54,7 +54,7 @@ SEO = making it easy for Google to **Find** every page, **Understand** what each
 
 ## 📍 Google Business Profile
 
-> 📍 **For local search, GBP often matters MORE than the website itself.** Not optional — core infrastructure.
+> 📍 **For local search, GBP often matters MORE than the website itself.** Not optional: core infrastructure.
 
 Full hands-on setup is in Module 13. For now: take it seriously from day one of any client project.
 
@@ -76,12 +76,12 @@ Full hands-on setup is in Module 13. For now: take it seriously from day one of 
 
 ## 💰 What makes a site convert
 
-- ✅ **Above-the-fold clarity** — within 2 seconds, know what/who/what-next
-- ✅ **Clickable phone numbers** — `tel:` links, especially mobile
-- ✅ **Multiple CTAs** — phone, form, sometimes booking
-- ✅ **Trust signals** — real photos, real testimonials, ABN
-- ✅ **Speed** — slow sites lose visitors before they even see the design
-- ✅ **Mobile experience** — most local-trade traffic is mobile
+- ✅ **Above-the-fold clarity**: within 2 seconds, know what/who/what-next
+- ✅ **Clickable phone numbers**: `tel:` links, especially mobile
+- ✅ **Multiple CTAs**: phone, form, sometimes booking
+- ✅ **Trust signals**: real photos, real testimonials, ABN
+- ✅ **Speed**: slow sites lose visitors before they even see the design
+- ✅ **Mobile experience**: most local-trade traffic is mobile
 
 > 📐 This checklist underlies every design (Module 5) and build (Module 6) decision from here.
 
@@ -96,11 +96,11 @@ Full hands-on setup is in Module 13. For now: take it seriously from day one of 
 | "We're aiming for..." | "Guaranteed first page" |
 | "Typically, in 3-6 months..." | "Ranking in two weeks" |
 
-> 🎯 Anyone promising fast SEO is lying or doesn't understand the system. Set the timeline upfront — when results land on schedule, you look like you knew what you were doing. Because you did.
+> 🎯 Anyone promising fast SEO is lying or doesn't understand the system. Set the timeline upfront: when results land on schedule, you look like you knew what you were doing. Because you did.
 
 ---
 
-## ✅ PROVE IT — Module 2 Quiz + Practical
+## ✅ PROVE IT: Module 2 Quiz + Practical
 
 ### Quiz (10 questions, 80% to pass)
 
@@ -171,4 +171,4 @@ Write a title tag + meta description for 3 Smith Building Co pages: Homepage, Se
 - [ ] Each meta description under 155 characters
 - [ ] Each unique, location included naturally
 
-**Next: Module 3 — Talking to AI →**
+**Next: Module 3, Talking to AI →**

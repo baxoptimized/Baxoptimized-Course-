@@ -1,8 +1,8 @@
-# MODULE 9 — Version Control & Pushing to GitHub
+# MODULE 9: Version Control & Pushing to GitHub
 
 **Format:** Short chunks + real commands
 **Unlocks:** Module 10
-**Gate to pass:** HARD GATE — submit your GitHub repo link with the site pushed
+**Gate to pass:** HARD GATE: submit your GitHub repo link with the site pushed
 
 ---
 
@@ -12,7 +12,7 @@
 
 > 🎮 **Git = save points in a video game. GitHub = where those save points live online.** Every commit is a snapshot of your whole project, with a message describing what changed.
 
-This is real insurance — if you break something, roll back to the last good save point.
+This is real insurance: if you break something, roll back to the last good save point.
 
 ---
 
@@ -69,13 +69,13 @@ git push -u origin main
 
 ## 🆘 When it goes wrong
 
-**Common error — "rejected, remote contains work you don't have":**
+**Common error: "rejected, remote contains work you don't have":**
 ```bash
 git pull origin main
 git push
 ```
 
-**🤖 PROMPT CARD — Git error debugging:**
+**🤖 PROMPT CARD (Git error debugging):**
 ```
 I got this exact error when running [the command you ran]:
 
@@ -84,11 +84,11 @@ I got this exact error when running [the command you ran]:
 Before you tell me the fix, explain what's actually causing this.
 ```
 
-> 🔗 Same debugging principle as Module 3 — paste the exact error, ask for an explanation before a fix.
+> 🔗 Same debugging principle as Module 3: paste the exact error, ask for an explanation before a fix.
 
 ---
 
-## ✅ PROVE IT — Module 9 Practical Checkpoint (HARD GATE)
+## ✅ PROVE IT: Module 9 Practical Checkpoint (HARD GATE)
 
 **Submit:**
 - [ ] Link to your GitHub repository
@@ -134,4 +134,4 @@ Before you tell me the fix, explain what's actually causing this.
    - c) Restart your computer
    - d) Delete the project
 
-**Next: Module 10 — Deploying to Vercel →**
+**Next: Module 10, Deploying to Vercel →**

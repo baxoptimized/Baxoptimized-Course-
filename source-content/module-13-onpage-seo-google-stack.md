@@ -1,4 +1,4 @@
-# MODULE 13 — On-Page SEO & the Google Stack
+# MODULE 13: On-Page SEO & the Google Stack
 
 **Format:** Short chunks + prompt cards
 **Unlocks:** Module 14
@@ -10,7 +10,7 @@
 
 **Steps:**
 1. **analytics.google.com** → Admin → Create → Account (business name)
-2. Create a **Property** — AEST/Sydney timezone, AUD currency
+2. Create a **Property**: AEST/Sydney timezone, AUD currency
 3. Choose **Web**, enter the live site URL
 4. Copy the **Measurement ID** (`G-...`)
 5. Add the snippet to every page (shared layout for Next.js):
@@ -24,7 +24,7 @@
 </script>
 ```
 6. Set up a **conversion event** for the contact form
-7. Add the client — **Editor** for full handover, **Viewer** for ongoing-managed
+7. Add the client: **Editor** for full handover, **Viewer** for ongoing-managed
 
 ---
 
@@ -34,7 +34,7 @@
 2. Verify via **HTML tag** or **DNS TXT record** (DNS is more reliable long-term)
 3. **Sitemaps** → submit `[yourdomain]/sitemap.xml`
 
-**🤖 PROMPT CARD — Generate a sitemap:**
+**🤖 PROMPT CARD: Generate a sitemap:**
 ```
 Generate a sitemap.xml file for this Next.js project, including every
 page currently in the site. Use [yourdomain] as the base URL.
@@ -42,18 +42,18 @@ page currently in the site. Use [yourdomain] as the base URL.
 
 ---
 
-## 📍 Google Business Profile — the full setup
+## 📍 Google Business Profile: the full setup
 
 **The complete checklist:**
 - [ ] Claim/create at **business.google.com**
-- [ ] Business name — exact, matching NAP everywhere
-- [ ] Primary category — specific ("Home builder," not "Contractor")
+- [ ] Business name: exact, matching NAP everywhere
+- [ ] Primary category: specific ("Home builder," not "Contractor")
 - [ ] Address/service area, phone, website URL, hours
 - [ ] Description (≤750 chars, natural language, location included)
-- [ ] 5+ photos — logo, cover, real work
-- [ ] **Q&A pre-populated** — 5-10 questions answered by you as the owner
+- [ ] 5+ photos: logo, cover, real work
+- [ ] **Q&A pre-populated**: 5-10 questions answered by you as the owner
 
-**🤖 PROMPT CARD — GBP description writer:**
+**🤖 PROMPT CARD: GBP description writer:**
 ```
 Write a Google Business Profile description for [business name], a
 [business type] in [location], serving [service area]. Max 750
@@ -61,7 +61,7 @@ characters. Natural language, not keyword-stuffed. Include the location
 naturally. Match this voice: [brand voice rules].
 ```
 
-> 💬 Business-owner Q&A answers carry more weight than random user answers — and stop a stranger posting a wrong one first.
+> 💬 Business-owner Q&A answers carry more weight than random user answers, and stop a stranger posting a wrong one first.
 
 ---
 
@@ -76,13 +76,13 @@ area]. Phone: [phone]. Website: [URL]. Hours: [days/times]. Social:
 <script type="application/ld+json"> block for the homepage's <head>.
 ```
 
-> 🤖 Invisible to visitors, valuable to Google — tells search engines exactly what kind of business this is, machine-readable.
+> 🤖 Invisible to visitors, valuable to Google: tells search engines exactly what kind of business this is, machine-readable.
 
 ---
 
 ## 🔑 Finding keyword clusters
 
-> Cluster for Smith Building Co: "custom home builder Wollongong" + "new home builder Illawarra" + "building companies Wollongong" + "home builders south coast NSW" — one topic, multiple related terms.
+> Cluster for Smith Building Co: "custom home builder Wollongong" + "new home builder Illawarra" + "building companies Wollongong" + "home builders south coast NSW": one topic, multiple related terms.
 
 **Free ways to find them:** Google the service + location (check autocomplete, "People also ask"), check competitor sites, Google Keyword Planner (free).
 
@@ -90,7 +90,7 @@ area]. Phone: [phone]. Website: [URL]. Hours: [days/times]. Social:
 
 ---
 
-## 📇 Local citations — the full directory list
+## 📇 Local citations: the full directory list
 
 **General Australian:** Google Business Profile *(done above)*, Yellow Pages Australia, TrueLocal, Yelp Australia, Hotfrog, StartLocal, Local Business Guide, Aussie Web, Bing Places, Apple Maps Connect.
 
@@ -101,7 +101,7 @@ area]. Phone: [phone]. Website: [URL]. Hours: [days/times]. Social:
 | Health practitioners | HealthEngine, HotDoc, BookPhysio |
 | Hospitality | Zomato, TripAdvisor, Broadsheet |
 
-> 🔒 NAP consistency applies to every listing, no exceptions. Vary the description text — don't copy-paste identically.
+> 🔒 NAP consistency applies to every listing, no exceptions. Vary the description text; don't copy-paste identically.
 
 ---
 
@@ -111,13 +111,13 @@ GBP → **"Ask for reviews"** generates a short link.
 
 > Send after every completed job:
 >
-> "Hi [name], thanks for choosing [business] for your [project]. We'd love a quick Google review — it makes a huge difference for a small business. [LINK]. Takes 30 seconds. Thanks heaps! [Owner]"
+> "Hi [name], thanks for choosing [business] for your [project]. We'd love a quick Google review. It makes a huge difference for a small business. [LINK]. Takes 30 seconds. Thanks heaps! [Owner]"
 
 > 🚫 **Never incentivise reviews.** Violates Google's policies, risks suspension.
 
 ---
 
-## ✅ PROVE IT — Module 13 Quiz + Practical
+## ✅ PROVE IT: Module 13 Quiz + Practical
 
 ### Quiz (10 questions, 80% to pass)
 
@@ -187,4 +187,4 @@ GBP → **"Ask for reviews"** generates a short link.
 - [ ] Your generated schema markup code
 - [ ] One keyword cluster for Smith Building Co
 
-**Next: Module 14 — Editing & Maintaining a Live Site →**
+**Next: Module 14: Editing & Maintaining a Live Site →**

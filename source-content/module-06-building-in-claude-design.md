@@ -1,8 +1,8 @@
-# MODULE 6 — Building the Site in Claude Design
+# MODULE 6: Building the Site in Claude Design
 
 **Format:** Short chunks + prompt cards
 **Unlocks:** Module 7
-**Gate to pass:** Practical — submit your generated homepage
+**Gate to pass:** Practical: submit your generated homepage
 
 > 🎯 **From here, you build the exact same thing Baxter builds.** Pause, do the step, then resume.
 
@@ -17,13 +17,13 @@ Before any prompt goes to Claude Design, know your plan:
 > - **Pages:** Home, Services, About, Work, Contact (5 pages)
 > - **Direction:** photography-led, minimal decoration
 
-> 💡 Load the brief into your Claude Project (from Module 4) once — every conversation from here already has the context.
+> 💡 Load the brief into your Claude Project (from Module 4) once: every conversation from here already has the context.
 
 ---
 
 ## 🏗️ The master build prompt
 
-**🤖 PROMPT CARD — Homepage generation:**
+**🤖 PROMPT CARD (Homepage generation):**
 ```
 You're an experienced web designer who specialises in websites for trade
 and service businesses in Australia.
@@ -36,38 +36,38 @@ competitors are [competitor description]. They want the site to feel
 
 TASK:
 Build a homepage with, in this order:
-1. Header — logo placeholder, nav (Home, Services, About, Work, Contact),
+1. Header: logo placeholder, nav (Home, Services, About, Work, Contact),
    visible clickable phone number
-2. Hero — headline, one supporting sentence, one primary CTA, space for
+2. Hero: headline, one supporting sentence, one primary CTA, space for
    a hero photo
 3. 3-4 trust signals / credibility points
-4. Services overview — 3-4 service cards
-5. Featured work teaser — space for 2-3 project photos
+4. Services overview: 3-4 service cards
+5. Featured work teaser: space for 2-3 project photos
 6. Closing CTA section
-7. Footer — ABN placeholder, secondary links, contact details
+7. Footer: ABN placeholder, secondary links, contact details
 
 CONSTRAINTS:
 - Australian English spelling throughout
 - No generic stock-photo language ("synergy," "best-in-class")
 - Mobile-first
 - Palette: [your palette]
-- Minimal decoration — let photography and whitespace do the work
+- Minimal decoration: let photography and whitespace do the work
 
 FORMAT:
 Single Next.js page component, Tailwind CSS.
 
 EXAMPLE OF THE FEEL:
-[Describe a reference — e.g. "Clean, confident, like a well-established
-local builder's site — NOT like a generic template with stock photos."]
+[Describe a reference: e.g. "Clean, confident, like a well-established
+local builder's site, NOT like a generic template with stock photos."]
 ```
 
-> 💡 Notice: zero adjectives without a number or constraint attached. Every decision is specific — that's Module 3's anatomy, applied for real.
+> 💡 Notice: zero adjectives without a number or constraint attached. Every decision is specific: that's Module 3's anatomy, applied for real.
 
 ---
 
 ## 📄 Building each page
 
-**🤖 PROMPT CARD — Services page:**
+**🤖 PROMPT CARD (Services page):**
 ```
 Using the same business context and design direction as the homepage,
 build the Services page.
@@ -79,11 +79,11 @@ build the Services page.
 Same constraints as the homepage.
 ```
 
-**🤖 PROMPT CARD — About page:**
+**🤖 PROMPT CARD (About page):**
 ```
 Using the same context, build the About page.
 
-- The business's story — [2-3 real details: how long established,
+- The business's story: [2-3 real details: how long established,
   specialism, local connection]
 - Why this business vs competitors
 - Team section placeholder
@@ -92,7 +92,7 @@ Using the same context, build the About page.
 Same constraints as the homepage.
 ```
 
-**🤖 PROMPT CARD — Work/Portfolio page:**
+**🤖 PROMPT CARD (Work/Portfolio page):**
 ```
 Using the same context, build the Work page.
 
@@ -103,7 +103,7 @@ Using the same context, build the Work page.
 Same constraints as the homepage.
 ```
 
-**🤖 PROMPT CARD — Contact page:**
+**🤖 PROMPT CARD (Contact page):**
 ```
 Using the same context, build the Contact page.
 
@@ -112,11 +112,11 @@ Using the same context, build the Contact page.
 - Service area info
 - Map embed placeholder
 
-Same constraints. Note: form isn't wired to send emails yet — that's
+Same constraints. Note: form isn't wired to send emails yet. That's
 Module 8. Just build the visual form.
 ```
 
-> 🔁 Every prompt reuses the same Project context — you never re-explain the brief, palette, or voice.
+> 🔁 Every prompt reuses the same Project context: you never re-explain the brief, palette, or voice.
 
 ---
 
@@ -133,7 +133,7 @@ Module 8. Just build the visual form.
 
 ## ✍️ Writing the copy with AI
 
-**🤖 PROMPT CARD — Website copywriting:**
+**🤖 PROMPT CARD (Website copywriting):**
 ```
 Write the copy for [page name] for [business name], a [business type]
 in [location].
@@ -149,18 +149,18 @@ sentences"]
 No placeholder phrases, no unbacked claims ("award-winning" unless real).
 ```
 
-**🤖 PROMPT CARD — AHPRA-safe variant** *(health practitioner clients only)*:
+**🤖 PROMPT CARD (AHPRA-safe variant)** *(health practitioner clients only)*:
 ```
 [Same prompt above, PLUS:]
 
-ADDITIONAL CONSTRAINTS (AHPRA — regulated health practitioner):
+ADDITIONAL CONSTRAINTS (AHPRA, regulated health practitioner):
 - No testimonials or claims about clinical outcomes
 - No comparative/superlative claims ("best," "leading," "#1")
 - No cure-rate or guaranteed-outcome claims
 - Safe language: focus on experience and approach, never outcome promises
 ```
 
-> ⚠️ Always use the AHPRA-safe variant for health practitioner clients. Smith Building Co doesn't need it — flag this every time the client type changes.
+> ⚠️ Always use the AHPRA-safe variant for health practitioner clients. Smith Building Co doesn't need it; flag this every time the client type changes.
 
 ---
 
@@ -179,7 +179,7 @@ ADDITIONAL CONSTRAINTS (AHPRA — regulated health practitioner):
 
 ---
 
-## ✅ PROVE IT — Module 6 Practical Checkpoint
+## ✅ PROVE IT: Module 6 Practical Checkpoint
 
 **Submit:**
 - [ ] Screenshot of your generated homepage
@@ -192,4 +192,4 @@ ADDITIONAL CONSTRAINTS (AHPRA — regulated health practitioner):
 - [ ] AU English, no buzzwords
 - [ ] Mobile width checked, not just desktop
 
-**Next: Module 7 — Refining in VS Code with Claude Code →**
+**Next: Module 7, Refining in VS Code with Claude Code →**

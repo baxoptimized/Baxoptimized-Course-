@@ -1,4 +1,4 @@
-# MODULE 1 — How the Internet and Websites Actually Work
+# MODULE 1: How the Internet and Websites Actually Work
 
 **Format:** Short chunks + diagrams
 **Unlocks:** Module 2
@@ -8,14 +8,14 @@
 
 ## 🌐 What a website actually is
 
-A website is not magic. It's just **files** — HTML, CSS, JavaScript, and images — sitting on a computer that never turns off. That computer is called a **server**.
+A website is not magic. It's just **files** (HTML, CSS, JavaScript, and images) sitting on a computer that never turns off. That computer is called a **server**.
 
 <URLBar url="smithbuildingco.com.au" label="What a visitor types into their browser" />
 
 Behind that simple address bar, five things happen every single time someone visits a page, always in the same order:
 
 1. You type a domain into your browser.
-2. The browser asks **DNS** — think of it as the internet's phone book — "where does this domain actually live?"
+2. The browser asks **DNS** (think of it as the internet's phone book) "where does this domain actually live?"
 3. DNS replies with an **IP address**, the numeric location of the server that hosts the site.
 4. The browser asks that server for its files.
 5. The server sends the files back, and the browser assembles them into the page you see on screen.
@@ -28,7 +28,7 @@ Behind that simple address bar, five things happen every single time someone vis
 
 ## 🧱 The four moving parts
 
-Every website — no matter how simple or complex — is built from exactly four pieces. Learn these four, and you can diagnose almost any "my site is broken" problem in under a minute.
+Every website, no matter how simple or complex, is built from exactly four pieces. Learn these four, and you can diagnose almost any "my site is broken" problem in under a minute.
 
 > 🖼️ **DIAGRAM PLACEHOLDER:** The four moving parts in sequence: Domain → DNS records → Hosting → Code
 
@@ -39,7 +39,7 @@ Every website — no matter how simple or complex — is built from exactly four
 | **Hosting** | The server that stores and serves the files | Vercel |
 | **Code** | The actual HTML, CSS, and JavaScript | What you'll build in this course |
 
-> 🛠️ **Troubleshooting rule:** if a site is broken, the cause is always one of these four things. Check them in this exact order — domain, then DNS, then hosting, then code — and you'll find the problem almost every time.
+> 🛠️ **Troubleshooting rule:** if a site is broken, the cause is always one of these four things. Check them in this exact order (domain, then DNS, then hosting, then code) and you'll find the problem almost every time.
 
 ---
 
@@ -51,17 +51,17 @@ Think of a website like a body. Three layers stack on top of each other to build
 
 | Language | Analogy | What it actually does |
 |---|---|---|
-| **HTML** | Skeleton | Structure — headings, paragraphs, buttons. The bones of the page. |
+| **HTML** | Skeleton | Structure: headings, paragraphs, buttons. The bones of the page. |
 | **CSS** | Skin & clothes | Colour, fonts, spacing, layout. Everything that makes it look good. |
-| **JavaScript** | Muscles | Interactivity — anything that moves, reacts, or responds to a click. |
+| **JavaScript** | Muscles | Interactivity: anything that moves, reacts, or responds to a click. |
 
 Everything in that table runs in the visitor's own browser. That's why it's called the **front-end**.
 
-The **back-end** is different: it's code that runs on a server, not in the visitor's browser, and the visitor never sees it directly. A good example is sending an email when someone submits a contact form. A browser can *display* that form, but it physically cannot send an email by itself — something on a server has to do that part. You'll build exactly this in Module 8.
+The **back-end** is different: it's code that runs on a server, not in the visitor's browser, and the visitor never sees it directly. A good example is sending an email when someone submits a contact form. A browser can *display* that form, but it physically cannot send an email by itself: something on a server has to do that part. You'll build exactly this in Module 8.
 
 ---
 
-## ☁️ "The cloud," servers, and CDNs — demystified
+## ☁️ "The cloud," servers, and CDNs: demystified
 
 > ☁️ **"The cloud" is just someone else's computer that you're renting space on.** There's no magic involved. It's a physical machine sitting in a data centre somewhere, doing the same job your own laptop could do if it never switched off and had a permanent internet connection.
 
@@ -69,7 +69,7 @@ A **CDN** (Content Delivery Network) solves one specific problem: if your server
 
 > 🖼️ **DIAGRAM PLACEHOLDER:** CDN routing in sequence: Visitor in Sydney → Nearest CDN node, Sydney → Fast page load
 
-Vercel — the hosting platform this course is built on — does this automatically. Zero setup, on every site, every single time.
+Vercel, the hosting platform this course is built on, does this automatically. Zero setup, on every site, every single time.
 
 ---
 
@@ -77,7 +77,7 @@ Vercel — the hosting platform this course is built on — does this automatica
 
 | | WordPress + shared hosting | Next.js → GitHub → Vercel |
 |---|---|---|
-| Security | Plugins create constant vulnerabilities | Minimal attack surface — far less that can go wrong |
+| Security | Plugins create constant vulnerabilities | Minimal attack surface: far less that can go wrong |
 | Backups | Manual, and often forgotten | Every Git commit is automatically a backup point |
 | Speed | Shared server resources, often slow | Global CDN, fast by default |
 | Breaking changes | A single plugin update can break the whole site | Tested code with easy rollback to any earlier version |
@@ -100,16 +100,16 @@ Vercel — the hosting platform this course is built on — does this automatica
 
 ---
 
-## ✅ PROVE IT — Module 1 Quiz
+## ✅ PROVE IT: Module 1 Quiz
 
-You've now covered the five-step request loop, the four moving parts of any website, front-end vs back-end, what "the cloud" and CDNs really are, and why this course's stack beats WordPress on shared hosting. This quiz checks that it's actually stuck — you need 80% to move on to Module 2.
+You've now covered the five-step request loop, the four moving parts of any website, front-end vs back-end, what "the cloud" and CDNs really are, and why this course's stack beats WordPress on shared hosting. This quiz checks that it's actually stuck: you need 80% to move on to Module 2.
 
 1. Put the loop in order: [Server sends files] [Browser asks DNS] [Browser requests files] [DNS replies with IP] [Browser renders page]
    - Correct: Browser asks DNS → DNS replies with IP → Browser requests files → Server sends files → Browser renders page
 
 2. What is DNS?
    - a) A type of server hardware
-   - b) The internet's phone book — matches domains to IP addresses ✅
+   - b) The internet's phone book: matches domains to IP addresses ✅
    - c) A programming language
    - d) A security certificate
 
@@ -153,4 +153,4 @@ You've now covered the five-step request loop, the four moving parts of any webs
     - c) Module 6 ✅
     - d) Module 10
 
-**Next: Module 2 — How Websites Get Found →**
+**Next: Module 2, How Websites Get Found →**

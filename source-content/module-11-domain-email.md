@@ -1,4 +1,4 @@
-# MODULE 11 — Linking the Domain & Email
+# MODULE 11: Linking the Domain & Email
 
 **Format:** Short chunks + step-by-step screenshots
 **Unlocks:** Module 12
@@ -8,7 +8,7 @@
 
 ## 🔁 Domains and DNS, revisited
 
-> 🔗 Nothing about your code changes in this module. This is purely DNS — pointing a real domain at the Vercel project you already deployed.
+> 🔗 Nothing about your code changes in this module. This is purely DNS: pointing a real domain at the Vercel project you already deployed.
 
 ---
 
@@ -24,10 +24,10 @@
 ## ➕ Adding the domain in Vercel
 
 1. Vercel → project → **Settings → Domains**
-2. Enter the domain — add **both** root and `www` versions
+2. Enter the domain: add **both** root and `www` versions
 3. Vercel displays the exact DNS records needed
 
-> ⚠️ **Always copy DNS values directly from Vercel's current screen** — never from memory or an old document, including this course. These values can change over time.
+> ⚠️ **Always copy DNS values directly from Vercel's current screen**, never from memory or an old document, including this course. These values can change over time.
 
 ---
 
@@ -48,13 +48,13 @@
 | Value | The CNAME shown on Vercel's **current** screen |
 
 > ⏳ **DNS propagation:** usually under an hour for `.com.au`, occasionally up to 48 hours.
-> 🔒 **SSL provisions automatically** once DNS correctly points at Vercel — no separate action.
+> 🔒 **SSL provisions automatically** once DNS correctly points at Vercel: no separate action.
 
 ---
 
 ## ↪️ Handling a secondary .com domain
 
-> 🎯 **Always redirect a secondary domain — never run two separate live sites.** Splitting traffic splits SEO value too.
+> 🎯 **Always redirect a secondary domain, never run two separate live sites.** Splitting traffic splits SEO value too.
 
 1. Vercel: add the `.com` + `www.`.com`, set to **redirect** to the `.com.au`
 2. At the `.com`'s registrar: same A/CNAME records, pointing at Vercel
@@ -70,25 +70,25 @@ Two completely different systems on the same domain:
 |---|---|---|
 | What | Normal business email (`info@business.com.au`) | Automated, one-way notification sender |
 | Via | Google Workspace, Zoho Mail | Resend (Module 4 + 8) |
-| Who uses it | The client, daily | Nobody — it's automated |
+| Who uses it | The client, daily | Nobody: it's automated |
 | Connects to | `LEAD_TO_EMAIL` from Module 8 | Sends `from` your agency's verified domain |
 
-> 🔑 Don't confuse these when explaining to a client — one's their real inbox, one's the invisible automated system sending them lead notifications.
+> 🔑 Don't confuse these when explaining to a client: one's their real inbox, one's the invisible automated system sending them lead notifications.
 
 ---
 
-## ⏳ DNS propagation & SSL — what to tell a client
+## ⏳ DNS propagation & SSL: what to tell a client
 
 > **The script when a client asks "why isn't it showing yet":**
-> "DNS changes are propagating — completely normal, usually resolves within an hour, sometimes up to 48 hours. I'll let you know the moment it's fully live."
+> "DNS changes are propagating: completely normal, usually resolves within an hour, sometimes up to 48 hours. I'll let you know the moment it's fully live."
 
-> 🔒 SSL is automatic — no separate config, no extra cost.
+> 🔒 SSL is automatic: no separate config, no extra cost.
 
 ---
 
-## ✅ PROVE IT — Module 11 Quiz
+## ✅ PROVE IT: Module 11 Quiz
 
-*(10 questions, 80% to pass — practical work folds into Module 12 due to propagation timing)*
+*(10 questions, 80% to pass; practical work folds into Module 12 due to propagation timing)*
 
 1. What does a `.com.au` domain require?
    - a) A passport
@@ -144,8 +144,8 @@ Two completely different systems on the same domain:
 
 10. Does SSL need separate setup once DNS correctly resolves?
     - a) Yes, purchased separately
-    - b) No — automatic ✅
+    - b) No, automatic ✅
     - c) Only on paid plans
     - d) Only if requested
 
-**Next: Module 12 — Pre-Launch QA & Going Live →**
+**Next: Module 12: Pre-Launch QA & Going Live →**

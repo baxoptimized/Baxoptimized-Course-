@@ -1,8 +1,8 @@
-# MODULE 7.5 — Making It Look Like a $50k Site
+# MODULE 7.5: Making It Look Like a $50k Site
 
 **Format:** Short chunks. Read, look, copy, try.
 **Unlocks:** Module 8
-**Gate to pass:** Practical — add 3 effects from this module to your Smith Building Co site
+**Gate to pass:** Practical: add 3 effects from this module to your Smith Building Co site
 
 ---
 
@@ -24,31 +24,31 @@ A flat site and a site with this layer have **identical content.** Same words, s
 | Flat 2D shapes | Subtle 3D depth, parallax |
 | Static hero image | Looping video or interactive 3D scene |
 
-**This is exactly what that reference prompt at the start of this lesson was doing** — the looping video background, the custom fade logic, the liquid-glass blur effect on the nav. That's this entire module, distilled into one component.
+**This is exactly what that reference prompt at the start of this lesson was doing**: the looping video background, the custom fade logic, the liquid-glass blur effect on the nav. That's this entire module, distilled into one component.
 
 ---
 
-## 🧰 The five tools — what each one is actually for
+## 🧰 The five tools: what each one is actually for
 
-> 🖼️ **DIAGRAM PLACEHOLDER:** Five icons in a row — Three.js, WebGL, GSAP, Spline, Motion — each with a one-line label underneath matching the table below.
+> 🖼️ **DIAGRAM PLACEHOLDER:** Five icons in a row: Three.js, WebGL, GSAP, Spline, Motion, each with a one-line label underneath matching the table below.
 
 | Tool | What it actually does | When you reach for it |
 |---|---|---|
 | **Three.js** | Renders real 3D scenes in the browser (shapes, lighting, cameras) | A 3D object, scene, or environment on the page |
-| **WebGL (raw/shaders)** | The lower-level engine Three.js sits on top of — used directly for custom visual effects like glow, light, distortion | Ambient lighting effects, custom shader backgrounds, point-light glow |
-| **GSAP** | Animates anything — scroll-triggered reveals, timelines, sequencing | Text/element reveals on scroll, orchestrated multi-step animations |
+| **WebGL (raw/shaders)** | The lower-level engine Three.js sits on top of, used directly for custom visual effects like glow, light, distortion | Ambient lighting effects, custom shader backgrounds, point-light glow |
+| **GSAP** | Animates anything: scroll-triggered reveals, timelines, sequencing | Text/element reveals on scroll, orchestrated multi-step animations |
 | **Spline** | A visual tool (no code) for designing 3D scenes, then exporting them to drop into React | You want a custom 3D object/scene but don't want to hand-code Three.js geometry |
-| **Motion** (formerly Framer Motion) | Simple, declarative animation for React components | Hover effects, page transitions, simpler reveals — the "easy 80%" |
+| **Motion** (formerly Framer Motion) | Simple, declarative animation for React components | Hover effects, page transitions, simpler reveals (the "easy 80%") |
 
 **Rule of thumb:** Motion for simple stuff, GSAP for anything scroll-driven or sequenced, Three.js/Spline for actual 3D, raw WebGL for ambient light/shader effects. Most sites use **2 or 3 of these together**, not all five.
 
 ---
 
-## 🌊 Effect 1 — Scroll-Triggered Reveals (GSAP)
+## 🌊 Effect 1: Scroll-Triggered Reveals (GSAP)
 
-> 🖼️ **SCREENSHOT/GIF PLACEHOLDER:** A section fading and rising into view as the page scrolls past it — before/after scroll position shown as two frames.
+> 🖼️ **SCREENSHOT/GIF PLACEHOLDER:** A section fading and rising into view as the page scrolls past it: before/after scroll position shown as two frames.
 
-This is the single highest-impact, lowest-effort effect in this whole module. Elements don't just appear — they fade up, slide in, or scale in **exactly when they enter the viewport.**
+This is the single highest-impact, lowest-effort effect in this whole module. Elements don't just appear; they fade up, slide in, or scale in **exactly when they enter the viewport.**
 
 **🤖 PROMPT CARD:**
 ```
@@ -63,19 +63,19 @@ SPECIFICATIONS:
 - Duration: 0.6s, ease: "power3.out"
 - Animation should only play once per element (no re-triggering on
   scroll-up then scroll-down again)
-- Respect prefers-reduced-motion — if set, skip the animation and show
+- Respect prefers-reduced-motion: if set, skip the animation and show
   elements at full opacity immediately
 - Use useEffect + useRef in React, register ScrollTrigger plugin once at
   the top of the component file
 ```
 
-**Why this prompt is built this way:** specific trigger point (80%, not "when visible" — vague), specific easing curve (not "smooth" — meaningless to AI), explicit accessibility constraint (`prefers-reduced-motion`), and explicit "only once" behaviour — without that constraint, GSAP will happily replay the animation every time you scroll past it, which looks janky, not premium.
+**Why this prompt is built this way:** specific trigger point (80%, not "when visible", which is vague), specific easing curve (not "smooth", which is meaningless to AI), explicit accessibility constraint (`prefers-reduced-motion`), and explicit "only once" behaviour: without that constraint, GSAP will happily replay the animation every time you scroll past it, which looks janky, not premium.
 
 ---
 
-## ✨ Effect 2 — Ambient WebGL Point Light / Glow Background
+## ✨ Effect 2: Ambient WebGL Point Light / Glow Background
 
-> 🖼️ **SCREENSHOT/GIF PLACEHOLDER:** A dark hero section with a soft moving glow/light source drifting subtly behind the content — like the cinematic glow effect in the reference prompt's video background, but generated rather than filmed.
+> 🖼️ **SCREENSHOT/GIF PLACEHOLDER:** A dark hero section with a soft moving glow/light source drifting subtly behind the content, like the cinematic glow effect in the reference prompt's video background, but generated rather than filmed.
 
 This is what makes a dark hero section feel alive instead of just... dark. A soft, slowly-moving point of light, rendered live in WebGL, sitting behind your content.
 
@@ -91,8 +91,8 @@ SPECIFICATIONS:
   hero text, z-index below the content
 - Use a basic plane or sphere mesh with a custom shader (or
   MeshStandardMaterial if simplicity is preferred) to catch the light
-  glow softly — no hard edges
-- The whole effect should feel slow and ambient, not energetic — full
+  glow softly, with no hard edges
+- The whole effect should feel slow and ambient, not energetic; a full
   loop should take 20-30 seconds
 - Cap the frame rate impact: this must not noticeably affect scroll
   performance. Use low poly counts and avoid recalculating geometry
@@ -101,13 +101,13 @@ SPECIFICATIONS:
   in the same warm tone instead
 ```
 
-**Why this prompt is built this way:** "slow figure-8, 20-30 second loop" gives AI a concrete motion pattern instead of "make it move nicely." The performance constraint is critical — WebGL effects are the #1 way beginners accidentally tank their PageSpeed score (remember Module 12). The fallback constraint means the effect degrades gracefully instead of breaking on unsupported browsers.
+**Why this prompt is built this way:** "slow figure-8, 20-30 second loop" gives AI a concrete motion pattern instead of "make it move nicely." The performance constraint is critical: WebGL effects are the #1 way beginners accidentally tank their PageSpeed score (remember Module 12). The fallback constraint means the effect degrades gracefully instead of breaking on unsupported browsers.
 
 ---
 
-> 🖼️ **SCREENSHOT PLACEHOLDER:** The actual liquid-glass hero from the reference prompt — full-bleed video, frosted nav bar, "Built for the curious" headline.
+> 🖼️ **SCREENSHOT PLACEHOLDER:** The actual liquid-glass hero from the reference prompt: full-bleed video, frosted nav bar, "Built for the curious" headline.
 
-This is exactly the technique in the prompt you provided at the top of this module. Worth breaking down because it's a genuinely excellent example of prompt density — every visual decision is a number, not a vibe.
+This is exactly the technique in the prompt you provided at the top of this module. Worth breaking down because it's a genuinely excellent example of prompt density: every visual decision is a number, not a vibe.
 
 **🤖 PROMPT CARD (the seamless video loop fade pattern, generalised):**
 ```
@@ -126,15 +126,15 @@ fade system (no CSS transitions):
   not snap to a starting value
 ```
 
-**Why this is a genuinely great prompt (study this pattern):** notice there's no adjective in the whole thing — no "smooth," no "nice," no "professional." Every single requirement is a number, an event name, or a specific behaviour. "500ms," "0.55 seconds remain," "100ms," "a boolean ref." This is **the exact pattern Module 3 taught you** — specificity over vibes — pushed to its logical extreme. This is what a senior prompt looks like.
+**Why this is a genuinely great prompt (study this pattern):** notice there's no adjective in the whole thing: no "smooth," no "nice," no "professional." Every single requirement is a number, an event name, or a specific behaviour. "500ms," "0.55 seconds remain," "100ms," "a boolean ref." This is **the exact pattern Module 3 taught you** (specificity over vibes) pushed to its logical extreme. This is what a senior prompt looks like.
 
 ---
 
-## 🪟 Effect 4 — Liquid Glass / Frosted UI
+## 🪟 Effect 4: Liquid Glass / Frosted UI
 
 > 🖼️ **SCREENSHOT PLACEHOLDER:** Close-up of a frosted glass nav bar or button, showing the subtle gradient border and blur, content visible blurred behind it.
 
-The "liquid glass" look — semi-transparent panels with blur and a soft gradient border — is one of the most reused premium UI patterns right now (you'll see it constantly in 2025-26 product sites). Here's the reusable CSS pattern.
+The "liquid glass" look (semi-transparent panels with blur and a soft gradient border) is one of the most reused premium UI patterns right now (you'll see it constantly in 2025-26 product sites). Here's the reusable CSS pattern.
 
 **🤖 PROMPT CARD:**
 ```
@@ -158,23 +158,23 @@ Add a ::before pseudo-element for the border effect:
   mask-composite: exclude
 - pointer-events: none on the pseudo-element
 
-Apply this class to [nav bar / buttons / cards — name the elements].
+Apply this class to [nav bar / buttons / cards: name the elements].
 ```
 
 **Callout box:**
-> 💡 **Save this one.** This exact CSS pattern is reusable across every future client site that wants a premium, dark, modern feel — paste it once into your starter template and reuse forever.
+> 💡 **Save this one.** This exact CSS pattern is reusable across every future client site that wants a premium, dark, modern feel: paste it once into your starter template and reuse forever.
 
 ---
 
-## 🧊 Effect 5 — Custom 3D Scene with Spline (No-Code 3D)
+## 🧊 Effect 5: Custom 3D Scene with Spline (No-Code 3D)
 
 > 🖼️ **SCREENSHOT PLACEHOLDER:** The Spline editor interface showing a simple 3D object scene, next to the same scene embedded live on a webpage.
 
-If you want an actual 3D object — a product, an abstract shape, a logo in 3D — without hand-coding Three.js geometry, Spline is the answer. It's a free, visual, drag-and-drop 3D design tool that exports directly to React.
+If you want an actual 3D object (a product, an abstract shape, a logo in 3D) without hand-coding Three.js geometry, Spline is the answer. It's a free, visual, drag-and-drop 3D design tool that exports directly to React.
 
 **The workflow, in short steps:**
 1. Go to **spline.design**, create a free account
-2. Design or pick a template scene (shapes, lighting, camera angle — all visual, no code)
+2. Design or pick a template scene (shapes, lighting, camera angle, all visual, no code)
 3. Click **Export → React**, copy the generated embed code
 4. Paste the embed into your project
 
@@ -190,19 +190,19 @@ SPECIFICATIONS:
   buttons or links (pointer-events should pass through to content
   below where there's no 3D object directly under the cursor)
 - Lazy-load the Spline scene so it doesn't block the initial page
-  render — show a simple gradient placeholder until it's loaded
+  render; show a simple gradient placeholder until it's loaded
 - On mobile, either simplify to a static image fallback or confirm
-  performance is acceptable — Spline scenes can be heavy on phones
+  performance is acceptable, since Spline scenes can be heavy on phones
 ```
 
 **Callout box:**
-> ⚠️ **Mobile performance is the real risk with Spline.** Always test on an actual phone, not just desktop dev tools. A gorgeous 3D scene that makes a phone lag is a worse experience than no 3D scene at all — remember Module 5's mobile-first rule.
+> ⚠️ **Mobile performance is the real risk with Spline.** Always test on an actual phone, not just desktop dev tools. A gorgeous 3D scene that makes a phone lag is a worse experience than no 3D scene at all. Remember Module 5's mobile-first rule.
 
 ---
 
-## 🪄 Effect 6 — Simple Motion (Framer Motion) for Everything Else
+## 🪄 Effect 6: Simple Motion (Framer Motion) for Everything Else
 
-> 🖼️ **GIF PLACEHOLDER:** A button subtly scaling on hover, a card lifting slightly on hover — small, simple, satisfying micro-interactions.
+> 🖼️ **GIF PLACEHOLDER:** A button subtly scaling on hover, a card lifting slightly on hover: small, simple, satisfying micro-interactions.
 
 Not everything needs GSAP or Three.js. For simple hover states, button presses, and page transitions, **Motion** is faster to write and just as effective.
 
@@ -217,13 +217,13 @@ Using Motion (Framer Motion) for React, add these micro-interactions:
 - Page load: the hero content should fade in and rise 16px over 0.5s,
   starting 0.1s after mount
 
-Keep everything subtle — these are micro-interactions, not the main
+Keep everything subtle: these are micro-interactions, not the main
 visual statement of the page.
 ```
 
 ---
 
-## ⚖️ When to use which — decision flow
+## ⚖️ When to use which: decision flow
 
 > 🖼️ **DIAGRAM PLACEHOLDER:** A simple decision-tree flowchart matching the table below.
 
@@ -236,7 +236,7 @@ visual statement of the page.
 | An actual 3D object or scene | Spline (no-code) or Three.js (code) |
 | Simple hover/tap/page-load polish | Motion |
 
-**The most common mistake:** using all six effects on one site. **Don't.** Pick 2-3 that suit the brand. A builder client (Smith Building Co) probably wants restrained scroll reveals and maybe a subtle ambient effect — NOT a liquid-glass nav and a full 3D hero. A creative agency or SaaS product client might want the full liquid-glass + WebGL treatment. Match the effect intensity to the brand, exactly like Module 5 taught you with colour and type.
+**The most common mistake:** using all six effects on one site. **Don't.** Pick 2-3 that suit the brand. A builder client (Smith Building Co) probably wants restrained scroll reveals and maybe a subtle ambient effect, but NOT a liquid-glass nav and a full 3D hero. A creative agency or SaaS product client might want the full liquid-glass + WebGL treatment. Match the effect intensity to the brand, exactly like Module 5 taught you with colour and type.
 
 ---
 
@@ -244,16 +244,16 @@ visual statement of the page.
 
 > 🖼️ **SCREENSHOT PLACEHOLDER:** A PageSpeed Insights result showing a poor score caused by heavy JS, annotated with an arrow pointing at the culprit.
 
-Every effect in this module costs something in load time and performance. Remember Module 12's 90+ PageSpeed target — that target doesn't go away just because you've added Three.js.
+Every effect in this module costs something in load time and performance. Remember Module 12's 90+ PageSpeed target: that target doesn't go away just because you've added Three.js.
 
 **The non-negotiable checklist before shipping any visual effect:**
-- [ ] Lazy-load anything 3D or video-based — it shouldn't block initial page render
-- [ ] Test PageSpeed Insights again after adding effects — re-check the score, don't assume
+- [ ] Lazy-load anything 3D or video-based: it shouldn't block initial page render
+- [ ] Test PageSpeed Insights again after adding effects: re-check the score, don't assume
 - [ ] Test on an actual phone, not just desktop dev tools
-- [ ] Respect `prefers-reduced-motion` for accessibility — some visitors have this set deliberately
+- [ ] Respect `prefers-reduced-motion` for accessibility: some visitors have this set deliberately
 - [ ] If a single effect tanks the score by more than ~10 points, scale it back or simplify it
 
-**🤖 PROMPT CARD — ask Claude to check this for you:**
+**🤖 PROMPT CARD (ask Claude to check this for you):**
 ```
 Review [the component/file] for performance issues related to the visual
 effects added. Specifically check: is anything heavy loading on initial
@@ -264,13 +264,13 @@ respect prefers-reduced-motion? Flag anything before I deploy this.
 
 ---
 
-## ✅ PROVE IT — Practical Checkpoint
+## ✅ PROVE IT: Practical Checkpoint
 
 **Task:** Add at least **3 effects from this module** to your Smith Building Co site. Recommended combination for a builder brand: scroll-triggered reveals (Effect 1) + one ambient or glass touch (Effect 2 or 4) + simple Motion polish (Effect 6).
 
 **Submit:**
 - [ ] A short screen-recording (15-30 sec) of your site scrolling, showing the effects in action
-- [ ] Your PageSpeed Insights score AFTER adding the effects (still needs to be 90+ — go back and optimise if not)
+- [ ] Your PageSpeed Insights score AFTER adding the effects (still needs to be 90+; go back and optimise if not)
 - [ ] A one-line note on which 3 effects you chose and why they fit Smith Building Co's brand
 
 **Quiz (8 questions, 80% to pass):**
@@ -289,13 +289,13 @@ respect prefers-reduced-motion? Flag anything before I deploy this.
 
 3. In the scroll-reveal prompt, why specify "triggers at 80% into viewport" instead of "when visible"?
    - a) It doesn't matter, both are the same
-   - b) "When visible" is vague — AI needs an exact trigger point, same Module 3 specificity principle ✅
+   - b) "When visible" is vague: AI needs an exact trigger point, same Module 3 specificity principle ✅
    - c) 80% is a hard technical requirement of GSAP
    - d) It only works at exactly 80%
 
 4. Why does the video-loop prompt include "0.55 seconds remain" rather than "fade out near the end"?
    - a) It's an arbitrary number with no real reason
-   - b) Specific numbers remove guesswork — this is the same prompting principle from Module 3, pushed further ✅
+   - b) Specific numbers remove guesswork: this is the same prompting principle from Module 3, pushed further ✅
    - c) CSS requires this exact number
    - d) It only works with whole numbers
 
@@ -307,7 +307,7 @@ respect prefers-reduced-motion? Flag anything before I deploy this.
 
 6. Why must you re-check PageSpeed Insights after adding visual effects?
    - a) It's not actually necessary
-   - b) Visual effects cost real performance — the 90+ target from Module 12 still applies ✅
+   - b) Visual effects cost real performance: the 90+ target from Module 12 still applies ✅
    - c) PageSpeed doesn't measure JS-heavy pages
    - d) Only mobile scores matter, not desktop
 

@@ -1,4 +1,4 @@
-# OPERATOR MODULE — Running It as a Business
+# OPERATOR MODULE: Running It as a Business
 
 **🔒 STAFF ONLY. NEVER SOLD. NEVER SHOWN TO BUYERS.**
 
@@ -18,25 +18,25 @@
 | **Managed** | "I never want to think about it again" | Recurring, we keep it alive |
 | **Growth** | "I want it to actively bring in customers" | Recurring, build + maintain + grow |
 
-> 🎯 **The upgrade path is the genius bit.** When a client asks "how do I get more enquiries?" — that's Growth selling itself. You're answering a question they're already asking.
+> 🎯 **The upgrade path is the genius bit.** When a client asks "how do I get more enquiries?", that's Growth selling itself. You're answering a question they're already asking.
 
 ---
 
 ## 💰 Pricing in full
 
-**Launch — $1,500 one-off:** 5-7 page site, basic on-page SEO, GBP setup, contact form, 1 revision round, full handover.
+**Launch, $1,500 one-off:** 5-7 page site, basic on-page SEO, GBP setup, contact form, 1 revision round, full handover.
 
-**Managed — $149/mo + $1,000 setup, 12-month min:** Everything in Launch + hosting, backups, security monitoring, ongoing maintenance, up to 30 min edits/month, monthly summary.
+**Managed, $149/mo + $1,000 setup, 12-month min:** Everything in Launch + hosting, backups, security monitoring, ongoing maintenance, up to 30 min edits/month, monthly summary.
 
-**Growth — $499/mo + $1,000 setup, 6-month min:** Everything in Managed + local SEO/GBP management, weekly GBP posts, review system, 2 keyword clusters, monthly content, citation building, monthly growth report.
+**Growth, $499/mo + $1,000 setup, 6-month min:** Everything in Managed + local SEO/GBP management, weekly GBP posts, review system, 2 keyword clusters, monthly content, citation building, monthly growth report.
 
-**Add-on — Content Half-Day — $400:** Half-day shoot with media partner.
+**Add-on, Content Half-Day, $400:** Half-day shoot with media partner.
 
 *All prices ex GST (not yet registered, under $75k threshold).*
 
 ---
 
-## 📊 The unit economics — know these cold
+## 📊 The unit economics: know these cold
 
 | Tier | Time | Effective hourly rate |
 |---|---|---|
@@ -62,9 +62,9 @@
 
 ## 📅 Monthly delivery routines
 
-**Managed — light, weekly:** uptime/security check (~15 min, week 1), handle edits within budget, monthly summary at month's end.
+**Managed, light, weekly:** uptime/security check (~15 min, week 1), handle edits within budget, monthly summary at month's end.
 
-**Growth — full calendar:**
+**Growth, full calendar:**
 
 | Week | Tasks |
 |---|---|
@@ -73,7 +73,7 @@
 | 3 | GBP post #3, on-page SEO improvements, citation check, review replies |
 | 4 | GBP post #4, second content piece, pull report data, send report, plan next month |
 
-> 📅 Batch GBP posts at month start — faster than constant context-switching.
+> 📅 Batch GBP posts at month start: faster than constant context-switching.
 
 ---
 
@@ -85,23 +85,23 @@
 3. Build: visitors vs last month, top pages, top queries, clicks/impressions, avg keyword position
 4. Save as template, clone for every new Growth client
 
-**Monthly email:** 2-3 sentences on the month, dashboard link, what's next, any client actions, **one highlighted win** — "You're now on page 1 for 'builder Wollongong.'"
+**Monthly email:** 2-3 sentences on the month, dashboard link, what's next, any client actions, **one highlighted win**: "You're now on page 1 for 'builder Wollongong.'"
 
 ---
 
-## 📈 Upsell strategy — the two natural moments
+## 📈 Upsell strategy: the two natural moments
 
 **Launch → Managed, at handover:**
 > "Your site is live, but who's keeping it secure, backed up, and updated? That's what Managed covers."
 
 **Managed → Growth, whenever they ask "how do I get more enquiries?":**
-> Don't wait for a check-in — that question IS the opening.
+> Don't wait for a check-in; that question IS the opening.
 
 ---
 
-## ⚠️ AHPRA compliance — non-negotiable
+## ⚠️ AHPRA compliance: non-negotiable
 
-**Applies to ALL content for health practitioner clients — website, GBP, social, everything:**
+**Applies to ALL content for health practitioner clients (website, GBP, social, everything):**
 1. No testimonials about clinical outcomes
 2. No comparative/superlative claims ("best," "leading")
 3. No before/after imagery for clinical procedures
@@ -125,7 +125,7 @@
 | Email marketing | Specialised discipline |
 | Video production | Outsourced via content partner |
 | Social media management | Real time sink |
-| E-commerce | Shopify usually better — refer out |
+| E-commerce | Shopify usually better; refer out |
 | Branding/logo design | Refer to a graphic designer |
 
 **The script:** "That's not something I currently offer, but I can recommend someone who does."
@@ -136,7 +136,7 @@
 
 ## ⭐ Review requests, in practice
 
-Walk the client through the system personally at handover — don't just email it. Consistency over volume: one review a month beats sporadic bursts. Reiterate directly: never incentivise reviews.
+Walk the client through the system personally at handover; don't just email it. Consistency over volume: one review a month beats sporadic bursts. Reiterate directly: never incentivise reviews.
 
 ---
 
@@ -144,11 +144,11 @@ Walk the client through the system personally at handover — don't just email i
 
 **Weekly post rotation (batch-written at month start):** project showcase, service highlight, seasonal, behind the scenes, tip/advice. 150-300 words, real photo always, CTA always.
 
-Confirm with the client whether they want **messaging** enabled. Monitor **Q&A** for new user questions — answer promptly, especially anything inaccurate.
+Confirm with the client whether they want **messaging** enabled. Monitor **Q&A** for new user questions: answer promptly, especially anything inaccurate.
 
 ---
 
-## ✅ PROVE IT — Operator Module Scenario Quiz
+## ✅ PROVE IT: Operator Module Scenario Quiz
 
 *(10 scenario questions, 80% to pass)*
 
@@ -165,8 +165,8 @@ Confirm with the client whether they want **messaging** enabled. Monitor **Q&A**
    - d) Build them free ads
 
 3. A physio client wants a testimonial: "Sarah fixed my chronic back pain completely." Your move?
-   - a) Add it — it's genuine
-   - b) Decline — clinical outcome claim, AHPRA prohibits it ✅
+   - a) Add it: it's genuine
+   - b) Decline: clinical outcome claim, AHPRA prohibits it ✅
    - c) Shorten it, keep the claim
    - d) Add it marked "unverified"
 
@@ -178,7 +178,7 @@ Confirm with the client whether they want **messaging** enabled. Monitor **Q&A**
 
 5. A Growth client wants "review for 10% off."
    - a) Yes, great idea
-   - b) No — violates Google's policies, risks suspension ✅
+   - b) No: violates Google's policies, risks suspension ✅
    - c) Only first month
    - d) Fine if not advertised publicly
 
@@ -196,7 +196,7 @@ Confirm with the client whether they want **messaging** enabled. Monitor **Q&A**
 
 8. A health client wants before/after cosmetic procedure photos on the homepage.
    - a) Add it, client requested it
-   - b) Decline — not permitted under AHPRA ✅
+   - b) Decline: not permitted under AHPRA ✅
    - c) Add it smaller
    - d) Add it with a waiver
 
@@ -209,11 +209,11 @@ Confirm with the client whether they want **messaging** enabled. Monitor **Q&A**
 10. A Managed client's edit will clearly take 90 min, beyond their 30-min allowance.
     - a) Do it free to avoid awkwardness
     - b) Say it's impossible
-    - c) "That's beyond the monthly included edits — I can do it for $X, want me to go ahead?" ✅
+    - c) "That's beyond the monthly included edits; I can do it for $X, want me to go ahead?" ✅
     - d) Ignore the request
 
 ---
 
-## 🔒 Access Control — Non-Negotiable
+## 🔒 Access Control: Non-Negotiable
 
-This module must live in a genuinely separate, access-controlled area of the platform — never bundled, never linked from the public dashboard or sales page, never reachable by anyone who hasn't passed the core capstone AND signed the staff agreement.
+This module must live in a genuinely separate, access-controlled area of the platform: never bundled, never linked from the public dashboard or sales page, never reachable by anyone who hasn't passed the core capstone AND signed the staff agreement.

@@ -1,8 +1,8 @@
-# MODULE 4 — Setting Up Your Toolkit
+# MODULE 4: Setting Up Your Toolkit
 
 **Format:** Short chunks + step-by-step screenshots
 **Unlocks:** Module 5
-**Gate to pass:** HARD GATE — every account/tool must work before continuing
+**Gate to pass:** HARD GATE: every account/tool must work before continuing
 
 > ⚠️ **This is a hard gate.** Every later module assumes this plumbing already works. Go slowly, especially the Git/SSH step.
 
@@ -38,7 +38,7 @@ mkdir -p ~/clients
 
 ---
 
-## 🐙 GitHub, Git & SSH — the careful one
+## 🐙 GitHub, Git & SSH: the careful one
 
 **Steps:**
 1. Sign up at **github.com**
@@ -86,7 +86,7 @@ ssh -T git@github.com
 1. Sign up/log in at **claude.ai**
 2. Create a new **Project** named "Smith Building Co"
 
-> 💡 Claude Design and Claude Code aren't separate logins — they're modes within the same account.
+> 💡 Claude Design and Claude Code aren't separate logins; they're modes within the same account.
 
 ---
 
@@ -107,19 +107,19 @@ ssh -T git@github.com
 
 **Steps:**
 1. Sign up at **resend.com** with a dedicated business email
-2. **Domains → Add Domain** — use a subdomain (e.g. `send.yourbusiness.com.au`)
+2. **Domains → Add Domain**: use a subdomain (e.g. `send.yourbusiness.com.au`)
 3. Copy the DNS records Resend generates (DKIM, SPF, sometimes DMARC)
 4. Add those records at your domain registrar *(full DNS explanation in Module 11)*
 5. Wait for **Verified** status (minutes to a few hours)
 6. **API Keys → Create** → copy immediately (starts with `re_`), store in a password manager
 
-> 🔑 This is one-time setup. Every future client's contact form reuses this same account — the per-client setup (Module 8) is much shorter.
+> 🔑 This is one-time setup. Every future client's contact form reuses this same account; the per-client setup (Module 8) is much shorter.
 
 ---
 
-## ✅ PROVE IT — Module 4 Practical Checkpoint (HARD GATE)
+## ✅ PROVE IT: Module 4 Practical Checkpoint (HARD GATE)
 
-**Submit proof for each — do not proceed until all six are ticked:**
+**Submit proof for each; do not proceed until all six are ticked:**
 
 - [ ] VS Code opens, Claude Code/Live Server/Prettier all visible in Extensions
 - [ ] `~/clients` folder exists (screenshot)
@@ -128,4 +128,4 @@ ssh -T git@github.com
 - [ ] Claude Project "Smith Building Co" exists
 - [ ] Resend shows a sending domain as **Verified**, API key generated
 
-**Next: Module 5 — Design That Converts →**
+**Next: Module 5: Design That Converts →**
