@@ -27,7 +27,7 @@ function checkInMessage({ scope, pct, doneLessons, totalLessons, currentModuleTi
 
 export function AssistantWidget({ progress }: { progress: AssistantProgress }) {
   const [open, setOpen] = useState(false);
-  const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@baxoptimized.com.au";
+  const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "bax@baxoptimized.com.au";
 
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">

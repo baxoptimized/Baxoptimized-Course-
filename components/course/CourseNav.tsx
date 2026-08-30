@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LogoutButton from "@/components/LogoutButton";
+import { Logo } from "@/components/Logo";
 import { ReactNode } from "react";
 
 export function CourseNav({
@@ -19,12 +20,8 @@ export function CourseNav({
         minHeight:      "49px",
       }}
     >
-      <Link
-        href="/course"
-        className="font-display text-sm font-semibold uppercase tracking-wide"
-        style={{ color: "var(--color-gold)", textDecoration: "none" }}
-      >
-        Baxoptimized
+      <Link href="/course" style={{ textDecoration: "none" }}>
+        <Logo height={20} />
       </Link>
       <div className="flex items-center gap-5">
         {extra}

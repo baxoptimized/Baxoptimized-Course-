@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { signupAction } from "./actions";
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 
 export function SignupForm({ initialEmail }: { initialEmail: string }) {
   const [state, action, pending] = useActionState(signupAction, null);
@@ -13,9 +14,9 @@ export function SignupForm({ initialEmail }: { initialEmail: string }) {
 
         {/* Logo / Brand */}
         <div className="text-center mb-10">
-          <span className="inline-block text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "var(--color-gold)" }}>
-            Baxoptimized
-          </span>
+          <div className="mb-4 flex justify-center">
+            <Logo height={26} />
+          </div>
           <h1 className="text-3xl font-bold" style={{ color: "var(--color-text-primary)" }}>
             Create your account
           </h1>

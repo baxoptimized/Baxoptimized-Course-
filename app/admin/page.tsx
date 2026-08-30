@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getCurrentUser } from "@/lib/session";
 import { sql } from "@/lib/db";
 import LogoutButton from "@/components/LogoutButton";
+import { Logo } from "@/components/Logo";
 import { updateUserRole, approveCheckpoint, requestRevision } from "./actions";
 
 type User = {
@@ -53,12 +54,8 @@ export default async function AdminPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <Link
-              href="/course"
-              className="text-sm font-semibold tracking-widest uppercase"
-              style={{ color: "var(--color-gold)", textDecoration: "none" }}
-            >
-              Baxoptimized
+            <Link href="/course" style={{ textDecoration: "none" }}>
+              <Logo height={20} />
             </Link>
             <h1 className="text-2xl font-bold mt-1" style={{ color: "var(--color-text-primary)" }}>
               Admin

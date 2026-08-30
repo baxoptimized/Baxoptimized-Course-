@@ -7,6 +7,7 @@ import { preprocessMdx } from "@/lib/preprocessMdx";
 import { mdxComponents } from "@/components/mdx";
 import { LessonShell } from "@/components/lesson/LessonShell";
 import LogoutButton from "@/components/LogoutButton";
+import { Logo } from "@/components/Logo";
 
 type Lesson = {
   id: string;
@@ -62,12 +63,7 @@ export default async function LessonPage({
           borderBottom: "1px solid var(--color-navy-700)",
         }}
       >
-        <span
-          className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: "var(--color-gold)" }}
-        >
-          Baxoptimized
-        </span>
+        <Logo height={18} />
         <div className="flex items-center gap-4">
           <a
             href="/course"

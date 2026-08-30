@@ -11,6 +11,7 @@ import { mdxComponents } from "@/components/mdx";
 import { LessonLayout } from "@/components/lesson/LessonLayout";
 import { MarkCompleteButton } from "@/components/lesson/MarkCompleteButton";
 import { AssistantWidget } from "@/components/course/AssistantWidget";
+import { Logo } from "@/components/Logo";
 import LogoutButton from "@/components/LogoutButton";
 import { markLessonComplete } from "./actions";
 
@@ -297,12 +298,8 @@ export default async function LessonPage({
           height:         "49px",
         }}
       >
-        <Link
-          href="/course"
-          className="font-display text-sm font-semibold uppercase tracking-wide"
-          style={{ color: "var(--color-gold)", textDecoration: "none" }}
-        >
-          Baxoptimized
+        <Link href="/course" style={{ textDecoration: "none" }}>
+          <Logo height={20} />
         </Link>
         <div className="flex items-center gap-5">
           {/* Mobile: lesson count */}
