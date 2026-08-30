@@ -45,6 +45,17 @@ function parseNodes(desc: string): string[] {
       .filter(Boolean);
   }
 
+  // Try "(A, B, C)" parenthetical list pattern — the em-dash-free phrasing
+  // used post-copyedit, e.g. "Four icons in a row (Read, Look, Prompt, Prove)"
+  const parenMatch = desc.match(/\(([^)]+)\)/);
+  if (parenMatch) {
+    const items = parenMatch[1]
+      .split(/,\s*/)
+      .map((n) => n.replace(/^\p{Emoji}+\s*/u, "").trim())
+      .filter(Boolean);
+    if (items.length >= 2) return items;
+  }
+
   return [];
 }
 
