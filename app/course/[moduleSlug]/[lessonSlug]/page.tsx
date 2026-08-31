@@ -425,6 +425,8 @@ export default async function LessonPage({
           totalLessons: siblings.length,
           currentModuleTitle: parseModuleTitle(lesson.module_title).cleanTitle,
         }}
+        lessonTitle={lesson.title}
+        lessonContent={lesson.content_mdx ?? ""}
       />
     </div>
   );

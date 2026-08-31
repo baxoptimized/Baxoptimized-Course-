@@ -10,6 +10,7 @@
     "seed-content": "node --env-file=.env.local scripts/seed-content.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.122.0",
     "@neondatabase/serverless": "^1.1.0",
     "@vercel/blob": "^2.5.0",
     "bcryptjs": "^3.0.3",
