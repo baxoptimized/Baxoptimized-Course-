@@ -36,6 +36,9 @@ yarn-error.log*
 .env*
 env.txt
 
+# raw unsorted photo dump at project root — not a repo asset, don't commit
+Baxter\ Photos\ /
+
 # vercel
 .vercel
 

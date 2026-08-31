@@ -3,13 +3,40 @@
 import { useActionState } from "react";
 import { loginAction } from "./actions";
 import Link from "next/link";
+import Image from "next/image";
 import { Logo } from "@/components/Logo";
 
 export default function LoginPage() {
   const [state, action, pending] = useActionState(loginAction, null);
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "var(--color-navy-950)" }}>
+    <div className="flex min-h-screen" style={{ background: "var(--color-navy-950)" }}>
+      {/* Photo panel — desktop only */}
+      <div className="relative hidden w-[42%] shrink-0 lg:block">
+        <Image
+          src="/bax-hero.png"
+          alt="Baxter, your instructor"
+          fill
+          priority
+          sizes="42vw"
+          className="object-cover"
+          style={{ objectPosition: "center 15%" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(100deg, transparent 55%, var(--color-navy-950) 100%)" }}
+        />
+        <div className="absolute bottom-10 left-8 right-8">
+          <p className="font-display text-lg font-semibold" style={{ color: "var(--color-text-primary)" }}>
+            Hey, I&apos;m Baxter.
+          </p>
+          <p className="mt-1 text-sm leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+            I built this course myself — glad you're back.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex flex-1 items-center justify-center overflow-y-auto px-4 py-12">
       <div className="w-full max-w-md">
 
         {/* Logo / Brand */}
@@ -118,6 +145,7 @@ export default function LoginPage() {
             </a>
           )}
         </div>
+      </div>
       </div>
     </div>
   );
