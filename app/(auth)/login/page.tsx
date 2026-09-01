@@ -30,9 +30,6 @@ export default function LoginPage() {
           <p className="font-display text-lg font-semibold" style={{ color: "var(--color-text-primary)" }}>
             Hey, I&apos;m Baxter.
           </p>
-          <p className="mt-1 text-sm leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
-            I built this course myself — glad you're back.
-          </p>
         </div>
       </div>
 
