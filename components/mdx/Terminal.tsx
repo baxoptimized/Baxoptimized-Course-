@@ -2,6 +2,15 @@
 // npm, vercel deploy, etc. Deliberately generic chrome (not a specific
 // terminal app's real UI) since that's accurate regardless of what the
 // student's own machine actually looks like.
+//
+// GOTCHA: MDX parses JSX children as nested markdown before this component
+// ever sees them. A line starting with "# " becomes an H1 heading (not a
+// "# comment" line) and gets silently mangled — same risk for "-", "*",
+// ">", or a leading numbered list, at the start of a line. When authoring
+// a <Terminal> block, only use "$ command" and plain output lines; avoid
+// the "# comment" convention and any line starting with those characters.
+
+import type { ReactNode } from "react";
 
 function parseLine(line: string): { type: "command" | "output" | "comment"; text: string } {
   if (line.startsWith("$ ")) return { type: "command", text: line.slice(2) };
@@ -9,8 +18,21 @@ function parseLine(line: string): { type: "command" | "output" | "comment"; text
   return { type: "output", text: line };
 }
 
-export function Terminal({ children, label }: { children: string; label?: string }) {
-  const lines = children.trim().split("\n").map(parseLine);
+// MDX passes multi-line JSX children as an array of text/element nodes, not
+// a single string — flatten it before splitting into lines.
+function childrenToText(node: ReactNode): string {
+  if (typeof node === "string") return node;
+  if (typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(childrenToText).join("");
+  if (node && typeof node === "object" && "props" in (node as object)) {
+    const props = (node as { props: Record<string, unknown> }).props;
+    return childrenToText(props?.children as ReactNode);
+  }
+  return "";
+}
+
+export function Terminal({ children, label }: { children: ReactNode; label?: string }) {
+  const lines = childrenToText(children).trim().split("\n").map(parseLine);
 
   return (
     <figure data-reveal="true" className="my-6">
