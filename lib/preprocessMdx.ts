@@ -16,6 +16,25 @@ function safe(s: string) {
     .replace(/\}/g, "&#125;");
 }
 
+// For content embedded as JSX *children* (e.g. <PromptCard>...</PromptCard>)
+// rather than an attribute value: MDX parses JSX children as nested markdown
+// before the component ever sees them, so a prompt containing a numbered or
+// bulleted list ("1. Header:", "- Mobile-first") silently becomes a real
+// <ol>/<ul> instead of literal text — this is what caused a real
+// hydration mismatch (and a "copy" button that could paste an incomplete
+// prompt) on prompts using list formatting. Backslash-escaping is
+// CommonMark's own mechanism for a literal special character, so this
+// keeps the text rendering as exactly what's on the page. Attribute values
+// (safe() alone) don't need this since they're never re-parsed as markdown.
+function safeChildren(s: string) {
+  return safe(s)
+    .replace(/^(\s*)#/gm, "$1\\#")
+    .replace(/^(\s*)-/gm, "$1\\-")
+    .replace(/^(\s*)\*/gm, "$1\\*")
+    .replace(/^(\s*)(\d+)\./gm, "$1$2\\.")
+    .replace(/`/g, "\\`");
+}
+
 export function preprocessMdx(content: string): string {
   let text = content;
 
@@ -44,7 +63,7 @@ export function preprocessMdx(content: string): string {
     (_, titleSuffix, code) => {
       const raw = titleSuffix.replace(/^\s*—\s*/, "").trim();
       const title = raw || "PROMPT";
-      return `<PromptCard title="${safe(title)}">\n${safe(code)}\n</PromptCard>`;
+      return `<PromptCard title="${safe(title)}">\n${safeChildren(code)}\n</PromptCard>`;
     }
   );
 

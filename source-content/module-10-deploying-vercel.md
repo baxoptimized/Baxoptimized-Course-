@@ -46,12 +46,13 @@ LEAD_TO_EMAIL=client@theiremail.com.au
 
 ## 🔁 How auto-deploy works
 
-```bash
-git add .
-git commit -m "Updated homepage headline"
-git push
-# Vercel auto-detects this and redeploys within ~60 seconds
-```
+<Terminal label="terminal, smith-building">
+$ git add .
+$ git commit -m "Updated homepage headline"
+$ git push
+</Terminal>
+
+Vercel auto-detects the push and redeploys within about 60 seconds, no extra step.
 
 > 🔀 **Preview deployments:** pushing to a non-`main` branch creates a separate preview URL: perfect for showing a client a change before it goes live.
 

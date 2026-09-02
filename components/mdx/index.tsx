@@ -67,10 +67,18 @@ export const mdxComponents: MDXComponents = {
   },
 
   // ── Code blocks ───────────────────────────────────────────────────────────
+  // Fenced code blocks (```lang) get a "language-xxx" className from remark;
+  // inline `code` spans never do. Only fenced blocks get the full CodeBlock
+  // treatment (a <div>/<pre> — invalid nesting inside the surrounding <p> if
+  // used for inline spans); inline spans stay a plain <code>, styled by the
+  // ".lesson-prose :not(pre) > code" rule in globals.css.
   pre: ({ children }) => <>{children}</>,
-  code: ({ className, children }) => (
-    <CodeBlock className={className}>{children as ReactNode}</CodeBlock>
-  ),
+  code: ({ className, children }) =>
+    className ? (
+      <CodeBlock className={className}>{children as ReactNode}</CodeBlock>
+    ) : (
+      <code>{children as ReactNode}</code>
+    ),
 
   // ── Headings ──────────────────────────────────────────────────────────────
   h1: ({ children }) => (

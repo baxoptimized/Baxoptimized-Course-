@@ -31,25 +31,22 @@ This is real insurance: if you break something, roll back to the last good save 
 
 ## 🚀 The first push
 
-```bash
-# Initialise Git
-git init
+Initialise Git, stage everything, and make your first commit, the save point:
 
-# Stage all files
-git add .
+<Terminal label="terminal, smith-building">
+$ git init
+Initialized empty Git repository in ~/clients/smith-building/.git/
+$ git add .
+$ git commit -m "Initial site build"
+$ git branch -M main
+$ git remote add origin git@github.com:yourusername/smith-building.git
+$ git push -u origin main
+Enumerating objects: 24, done.
+Writing objects: 100% (24/24), done.
+Branch 'main' set up to track 'origin/main'.
+</Terminal>
 
-# Create the first commit (save point)
-git commit -m "Initial site build"
-
-# Set the main branch
-git branch -M main
-
-# Connect to your GitHub repo (use the SSH URL)
-git remote add origin git@github.com:yourusername/smith-building.git
-
-# Push everything up
-git push -u origin main
-```
+Use the SSH URL you copied when creating the repo for that `git remote add` line.
 
 > 🖱️ **Prefer clicking?** VS Code's Source Control panel (branch icon, left sidebar) does the same thing through buttons.
 

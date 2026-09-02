@@ -8,9 +8,9 @@
 
 ## 🖥️ Opening the project + previewing
 
-```bash
-code ~/clients/smith-building
-```
+<Terminal label="terminal">
+$ code ~/clients/smith-building
+</Terminal>
 
 Right-click your homepage file → **"Open with Live Server"**: auto-refreshes on every save.
 
@@ -19,6 +19,17 @@ Right-click your homepage file → **"Open with Live Server"**: auto-refreshes o
 ---
 
 ## 🤖 Real refinements with Claude Code
+
+This is what it actually looks like, start to finish: you type a plain-English instruction, Claude Code reads your real files, and edits them directly.
+
+<Terminal label="terminal, smith-building">
+$ claude
+Welcome to Claude Code.
+$ Make the navigation bar sticky, so it stays visible at the top as the visitor scrolls down.
+Reading components/Nav.tsx...
+Editing components/Nav.tsx...
+Done. The navigation bar now stays fixed to the top on scroll.
+</Terminal>
 
 **🤖 PROMPT CARDS: common refinements:**
 

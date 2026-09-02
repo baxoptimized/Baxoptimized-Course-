@@ -63,6 +63,8 @@ local builder's site, NOT like a generic template with stock photos."]
 
 > 💡 Notice: zero adjectives without a number or constraint attached. Every decision is specific: that's Module 3's anatomy, applied for real.
 
+> 🖼️ **SCREENSHOT PLACEHOLDER:** Claude Design's canvas immediately after running the master build prompt, a full generated homepage with hero, trust signals, service cards, and footer already in place.
+
 ---
 
 ## 📄 Building each page
