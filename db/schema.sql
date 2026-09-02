@@ -1,4 +1,5 @@
 -- ─── Drop existing tables (order matters for FK deps) ────────────────────────
+DROP TABLE IF EXISTS bookmarks             CASCADE;
 DROP TABLE IF EXISTS purchases             CASCADE;
 DROP TABLE IF EXISTS certificates          CASCADE;
 DROP TABLE IF EXISTS checkpoint_submissions CASCADE;
@@ -151,3 +152,16 @@ CREATE TRIGGER trg_purchases_unclaim_on_orphan
   BEFORE UPDATE ON purchases
   FOR EACH ROW
   EXECUTE FUNCTION purchases_unclaim_on_orphan();
+
+-- ─── bookmarks ──────────────────────────────────────────────────────────────
+-- Lets a student flag a lesson to come back to later (e.g. as a reference
+-- once they're doing real client work).
+CREATE TABLE bookmarks (
+  id         UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id    UUID        NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  lesson_id  UUID        NOT NULL REFERENCES lessons(id) ON DELETE CASCADE,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  UNIQUE (user_id, lesson_id)
+);
+
+CREATE INDEX idx_bookmarks_user_id ON bookmarks(user_id);

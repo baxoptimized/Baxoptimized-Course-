@@ -52,7 +52,7 @@ export default function CourseError({
           className="mb-8 text-sm leading-relaxed"
           style={{ color: "var(--color-text-muted)" }}
         >
-          We couldn&apos;t load this page. This is usually a temporary issue —
+          We couldn&apos;t load this page. This is usually a temporary issue,
           try again or head back to the dashboard.
         </p>
 

@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 import { getCurrentUser } from "@/lib/session";
 import { sql } from "@/lib/db";
 import { parseModuleTitle } from "@/lib/moduleTitle";
@@ -150,6 +151,12 @@ export default async function CoursePage() {
   const totalLessons   = modules.reduce((s, m) => s + m.total_lessons,   0);
   const doneLessons    = modules.reduce((s, m) => s + m.completed_lessons, 0);
   const pct            = totalLessons > 0 ? Math.round((doneLessons / totalLessons) * 100) : 0;
+
+  // First-ever visit: send new students to a short orientation before the module wall.
+  if (doneLessons === 0) {
+    const store = await cookies();
+    if (!store.get("welcomed")) redirect("/course/welcome");
+  }
   const quizzesPassed  = modules.filter((m) => m.quiz_passed).length;
   const modulesStarted = modules.filter(
     (m) => m.completed_lessons > 0 && m.status !== "completed"
@@ -160,7 +167,17 @@ export default async function CoursePage() {
   return (
     <div className="min-h-screen" style={{ background: "var(--color-navy-950)" }}>
 
-      <CourseNav />
+      <CourseNav
+        extra={
+          <a
+            href="/course/bookmarks"
+            className="hidden sm:inline text-xs transition-colors"
+            style={{ color: "var(--color-text-muted)", textDecoration: "none" }}
+          >
+            Bookmarks
+          </a>
+        }
+      />
 
       <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-12 px-5 pb-24 pt-12 lg:grid-cols-[minmax(0,680px)_320px] lg:px-8">
 

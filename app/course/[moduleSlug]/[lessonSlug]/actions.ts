@@ -19,3 +19,23 @@ export async function markLessonComplete(formData: FormData) {
 
   redirect(nextUrl || "/course");
 }
+
+export async function toggleBookmark(lessonId: string): Promise<{ bookmarked: boolean }> {
+  const user = await getCurrentUser();
+  if (!user) redirect("/login");
+
+  const existing = await sql`
+    SELECT id FROM bookmarks WHERE user_id = ${user.userId} AND lesson_id = ${lessonId}
+  `;
+
+  if (existing.length > 0) {
+    await sql`DELETE FROM bookmarks WHERE user_id = ${user.userId} AND lesson_id = ${lessonId}`;
+    return { bookmarked: false };
+  }
+
+  await sql`
+    INSERT INTO bookmarks (user_id, lesson_id) VALUES (${user.userId}, ${lessonId})
+    ON CONFLICT DO NOTHING
+  `;
+  return { bookmarked: true };
+}

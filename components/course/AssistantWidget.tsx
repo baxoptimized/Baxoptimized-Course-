@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 
 export type AssistantProgress = {
   scope: "course" | "module";
@@ -14,17 +15,17 @@ type ChatMessage = { role: "user" | "assistant"; content: string };
 
 function checkInMessage({ scope, pct, doneLessons, totalLessons, currentModuleTitle }: AssistantProgress): string {
   const scopeLabel = scope === "course" ? "the course" : "this module";
-  if (totalLessons === 0) return "Welcome in. Lesson 1 is a five-minute read — no pressure, just start.";
-  if (pct >= 100 && scope === "course") return "Every lesson's done. That's the whole course — your certificate is one click away.";
-  if (pct >= 100) return "This module's done. Nice work — on to the next one.";
+  if (totalLessons === 0) return "Welcome in. Lesson 1 is a five-minute read, no pressure, just start.";
+  if (pct >= 100 && scope === "course") return "Every lesson's done. That's the whole course, your certificate is one click away.";
+  if (pct >= 100) return "This module's done. Nice work, on to the next one.";
   if (doneLessons === 0) return "Ready when you are. Lesson 1 takes about five minutes.";
   if (scope === "module" && currentModuleTitle) {
-    return `${pct}% through ${currentModuleTitle} — ${doneLessons} of ${totalLessons} lessons done.`;
+    return `${pct}% through ${currentModuleTitle}, ${doneLessons} of ${totalLessons} lessons done.`;
   }
   if (currentModuleTitle) {
     return `${pct}% through ${scopeLabel}, ${doneLessons} of ${totalLessons} lessons done. Currently in ${currentModuleTitle}.`;
   }
-  return `${pct}% through ${scopeLabel} — ${doneLessons} of ${totalLessons} lessons done. Keep the momentum going.`;
+  return `${pct}% through ${scopeLabel}: ${doneLessons} of ${totalLessons} lessons done. Keep the momentum going.`;
 }
 
 export function AssistantWidget({
@@ -79,7 +80,7 @@ export function AssistantWidget({
         threadRef.current?.scrollTo({ top: threadRef.current.scrollHeight });
       }
     } catch {
-      setError("Couldn't reach the assistant — try again, or email us below.");
+      setError("Couldn't reach the assistant. Try again, or email us below.");
       setMessages((prev) => prev.slice(0, -1));
     } finally {
       setSending(false);
@@ -101,13 +102,9 @@ export function AssistantWidget({
           }}
         >
           <div className="mb-3 flex items-center gap-2">
-            <span
-              className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm"
-              style={{ background: "var(--color-accent-subtle)", color: "var(--color-accent)" }}
-              aria-hidden="true"
-            >
-              ●
-            </span>
+            <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded-full" style={{ border: "1px solid var(--color-accent)" }}>
+              <Image src="/bax-laptop-smile.jpg" alt="" fill sizes="28px" className="object-cover" style={{ objectPosition: "center 10%" }} />
+            </div>
             <p className="font-display text-sm font-semibold" style={{ color: "var(--color-text-primary)" }}>
               Your progress
             </p>

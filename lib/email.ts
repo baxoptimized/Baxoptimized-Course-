@@ -19,7 +19,7 @@ export async function sendPurchaseConfirmationEmail(email: string): Promise<void
   const { error } = await getClient().emails.send({
     from,
     to: email,
-    subject: "You're in — create your Baxoptimized account",
+    subject: "You're in: create your Baxoptimized account",
     html: `
       <p>Thanks for your purchase! Your payment has been confirmed.</p>
       <p>Click below to create your account and start the course:</p>

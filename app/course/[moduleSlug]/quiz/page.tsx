@@ -106,7 +106,7 @@ function ResultsView({
         ) : (
           <>
             <h1 className="text-2xl font-bold" style={{ color: "var(--color-text-primary)" }}>
-              Not quite — keep going
+              Not quite, keep going
             </h1>
             <p className="text-sm" style={{ color: "var(--color-text-secondary)" }}>
               {correctCount} of {mcQuestions.length} correct
@@ -311,7 +311,7 @@ export default async function QuizPage({
         <div className="mx-auto max-w-2xl px-5 pt-8">
           <p className="text-xs font-semibold uppercase tracking-widest"
             style={{ color: "var(--color-gold)" }}>
-            {mod.title} — Quiz Results
+            {mod.title}: Quiz Results
           </p>
         </div>
 

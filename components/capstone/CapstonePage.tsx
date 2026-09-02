@@ -36,16 +36,16 @@ const RUBRIC: RubricGroup[] = [
     heading: "Design & Build",
     items: [
       { key: "design_pages",       label: "All required pages built (Home, Services/Menu, About, Contact)", required: true },
-      { key: "mobile_responsive",  label: "Mobile-responsive — checked on a narrow viewport",               required: true },
+      { key: "mobile_responsive",  label: "Mobile-responsive, checked on a narrow viewport",               required: true },
       { key: "design_fundamentals",label: "Follows Module 5's design fundamentals",                         required: true },
       { key: "no_placeholder",     label: "No placeholder text anywhere",                                   required: true },
-      { key: "correct_voice",      label: "Correct voice — AHPRA-compliant if Brief B chosen",             required: true },
+      { key: "correct_voice",      label: "Correct voice, AHPRA-compliant if Brief B chosen",             required: true },
     ],
   },
   {
     heading: "Functionality",
     items: [
-      { key: "contact_form",   label: "Contact form wired to Resend — real test email sent and received", required: true },
+      { key: "contact_form",   label: "Contact form wired to Resend, real test email sent and received", required: true },
       { key: "phone_clickable",label: "Phone number clickable on mobile",                                 required: true },
       { key: "all_links",      label: "All links work",                                                   required: true },
     ],
@@ -69,7 +69,7 @@ const RUBRIC: RubricGroup[] = [
     ],
   },
   {
-    heading: "Visual polish (optional — Module 7.5)",
+    heading: "Visual polish (optional, Module 7.5)",
     items: [
       { key: "visual_effects", label: "At least 2–3 visual effects added, matched to the brand's tone",  required: false },
     ],
@@ -90,7 +90,7 @@ const REQUIRED_KEYS = RUBRIC.flatMap((g) => g.items.filter((i) => i.required).ma
 const BRIEFS = [
   {
     id:       "A",
-    name:     "Brief A — Thirroul Beachside Café",
+    name:     "Brief A: Thirroul Beachside Café",
     client:   "Sea & Sand Café",
     location: "Thirroul, NSW",
     summary:  "Instagram following, no website. Wants foot traffic, menu, beachside vibe, hours. Has nice phone photos. Wants warm, casual, not corporate.",
@@ -101,7 +101,7 @@ const BRIEFS = [
   },
   {
     id:       "B",
-    name:     "Brief B — Illawarra Physio Clinic",
+    name:     "Brief B: Illawarra Physio Clinic",
     client:   "Illawarra Movement Physiotherapy",
     location: "Wollongong",
     summary:  "Outdated, unprofessional site. Wants something reflecting real expertise, easy booking. Professional headshots only. Clean, calm, trustworthy.",
@@ -112,7 +112,7 @@ const BRIEFS = [
   },
   {
     id:       "C",
-    name:     "Brief C — Local Electrician",
+    name:     "Brief C: Local Electrician",
     client:   "Sparkwise Electrical",
     location: "Shellharbour",
     summary:  "Word-of-mouth only. Wants emergency call-out and residential search visibility. Phone photos, no logo. Fast-loading, trustworthy, clear emergency contact.",
@@ -316,8 +316,8 @@ function StatusCard({ submission, certificate }: { submission: Submission; certi
             </p>
             <p className="mt-1 text-sm" style={{ color: "var(--color-text-secondary)" }}>
               {isPending
-                ? "Your capstone is with Baxter — we'll review it within a few days."
-                : "Your submission needs changes — review the feedback and resubmit."}
+                ? "Your capstone is with Baxter, we'll review it within a few days."
+                : "Your submission needs changes. Review the feedback and resubmit."}
             </p>
             <p className="mt-1 text-xs" style={{ color: "var(--color-text-muted)" }}>
               Submitted {submittedDate}
@@ -484,7 +484,7 @@ export function CapstonePage({ submission, certificate, action }: Props) {
             />
             <p className="mb-5 text-sm" style={{ color: "var(--color-text-muted)" }}>
               Only tick when it&apos;s actually done. Stuck on something? Every item maps back to an
-              earlier module — re-read that module rather than guessing.
+              earlier module, so re-read that module rather than guessing.
             </p>
 
             <div className="space-y-7">

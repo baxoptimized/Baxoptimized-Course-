@@ -10,10 +10,11 @@ import { parseModuleTitle } from "@/lib/moduleTitle";
 import { mdxComponents } from "@/components/mdx";
 import { LessonLayout } from "@/components/lesson/LessonLayout";
 import { MarkCompleteButton } from "@/components/lesson/MarkCompleteButton";
+import { BookmarkButton } from "@/components/lesson/BookmarkButton";
 import { AssistantWidget } from "@/components/course/AssistantWidget";
 import { Logo } from "@/components/Logo";
 import LogoutButton from "@/components/LogoutButton";
-import { markLessonComplete } from "./actions";
+import { markLessonComplete, toggleBookmark } from "./actions";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -230,8 +231,8 @@ export default async function LessonPage({
     redirect("/course");
   }
 
-  // ── 2. Fetch siblings + completion + quiz presence ───────────────────────
-  const [siblingsRaw, quizRaw] = await Promise.all([
+  // ── 2. Fetch siblings + completion + quiz presence + bookmark state ──────
+  const [siblingsRaw, quizRaw, bookmarkRaw] = await Promise.all([
     sql`
       SELECT
         l.id, l.title, l.slug, l.order_index,
@@ -246,10 +247,14 @@ export default async function LessonPage({
       FROM quiz_questions
       WHERE module_id = ${lesson.module_id}
     `,
+    sql`
+      SELECT id FROM bookmarks WHERE user_id = ${user.userId} AND lesson_id = ${lesson.id}
+    `,
   ]);
   const siblings     = siblingsRaw  as unknown as SiblingLesson[];
   const quizCountRaw = quizRaw      as unknown as { cnt: number }[];
   const hasQuiz      = (quizCountRaw[0]?.cnt ?? 0) > 0;
+  const isBookmarked = (bookmarkRaw as unknown[]).length > 0;
   const currentIdx = siblings.findIndex((l) => l.id === lesson.id);
   const nextSibling = siblings[currentIdx + 1] ?? null;
   const prevSibling = siblings[currentIdx - 1] ?? null;
@@ -310,6 +315,13 @@ export default async function LessonPage({
             {currentIdx + 1} / {siblings.length}
           </span>
           <a
+            href="/course/bookmarks"
+            className="hidden sm:inline text-xs transition-colors"
+            style={{ color: "var(--color-text-muted)", textDecoration: "none" }}
+          >
+            Bookmarks
+          </a>
+          <a
             href="/course"
             className="hidden sm:inline text-xs transition-colors"
             style={{ color: "var(--color-text-muted)", textDecoration: "none" }}
@@ -351,12 +363,15 @@ export default async function LessonPage({
         </div>
 
         {/* Lesson title */}
-        <h1
-          className="mb-10 text-3xl font-bold tracking-tight leading-snug"
-          style={{ color: "var(--color-text-primary)" }}
-        >
-          {lesson.title}
-        </h1>
+        <div className="mb-10 flex items-start justify-between gap-4">
+          <h1
+            className="text-3xl font-bold tracking-tight leading-snug"
+            style={{ color: "var(--color-text-primary)" }}
+          >
+            {lesson.title}
+          </h1>
+          <BookmarkButton lessonId={lesson.id} initialBookmarked={isBookmarked} action={toggleBookmark} />
+        </div>
 
         {/* MDX body */}
         <MDXRemote

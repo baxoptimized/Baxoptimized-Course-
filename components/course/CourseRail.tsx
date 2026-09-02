@@ -1,5 +1,19 @@
+import Image from "next/image";
 import type { ProcessedModule } from "./ModuleCard";
 import { lessonUrlPart } from "@/lib/lessonUrl";
+
+const TIPS = [
+  "When you're stuck on a prompt, show Claude exactly what you want instead of describing it. A screenshot beats three sentences.",
+  "Found a site you like the feel of? Screenshot it and hand it to Claude Design as a reference. That's a completely normal way to work.",
+  "Bookmark any lesson you'll want later. Client work moves fast, and you won't remember which module had the answer.",
+  "The quiz has unlimited retakes for a reason. Failing one isn't a big deal, it's just telling you what to reread.",
+  "Every module builds on the last one. If something feels confusing, the fix is usually back a module or two, not ahead.",
+];
+
+function dailyTip(): string {
+  const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
+  return TIPS[dayOfYear % TIPS.length];
+}
 
 function StatTile({ value, label }: { value: number | string; label: string }) {
   return (
@@ -106,6 +120,24 @@ export function CourseRail({
             <StatTile value={modulesCompleted} label={`of ${modules.length} modules`} />
             <StatTile value={doneLessons} label={`of ${totalLessons} lessons`} />
             <StatTile value={quizzesPassed} label="Quizzes passed" />
+          </div>
+        </div>
+
+        {/* Tip of the day */}
+        <div
+          className="flex items-start gap-3 rounded-xl p-4"
+          style={{ background: "var(--color-navy-900)", border: "1px solid var(--color-navy-700)" }}
+        >
+          <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full">
+            <Image src="/bax-portrait-alt.jpg" alt="Baxter" fill sizes="36px" className="object-cover" style={{ objectPosition: "center 15%" }} />
+          </div>
+          <div>
+            <p className="mb-1 text-[10px] font-bold uppercase tracking-widest" style={{ color: "var(--color-gold)" }}>
+              Tip from Baxter
+            </p>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+              {dailyTip()}
+            </p>
           </div>
         </div>
       </div>

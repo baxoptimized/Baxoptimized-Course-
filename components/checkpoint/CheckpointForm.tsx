@@ -79,7 +79,7 @@ export function CheckpointForm({
           id="checkpoint-notes"
           name="notes"
           rows={5}
-          placeholder="https://yoursite.com — I built a full landing page with…"
+          placeholder="https://yoursite.com: I built a full landing page with…"
           className="w-full rounded-lg px-4 py-3 text-sm leading-relaxed resize-y"
           style={{
             background:  "var(--color-navy-800)",
@@ -161,8 +161,8 @@ export function CheckpointForm({
         </svg>
         <p className="text-xs" style={{ color: "var(--color-text-secondary)" }}>
           {isCapstone
-            ? "Your capstone will be manually reviewed. You'll keep full access while you wait — we'll review within a few days."
-            : "This checkpoint requires manual approval before the next module unlocks. You'll keep full access while you wait — we'll review within a few days."}
+            ? "Your capstone will be manually reviewed. You'll keep full access while you wait, and we'll review within a few days."
+            : "This checkpoint requires manual approval before the next module unlocks. You'll keep full access while you wait, and we'll review within a few days."}
         </p>
       </div>
 

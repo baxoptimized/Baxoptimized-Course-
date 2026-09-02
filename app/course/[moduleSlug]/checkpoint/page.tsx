@@ -71,7 +71,7 @@ function StatusCard({
       color:  "var(--color-gold)",
       bg:     "rgba(240,168,67,0.07)",
       border: "rgba(240,168,67,0.22)",
-      message: "Your submission is with us — we'll review it within a few days.",
+      message: "Your submission is with us, we'll review it within a few days.",
     },
     needs_revision: {
       icon: (
@@ -84,7 +84,7 @@ function StatusCard({
       color:  "var(--color-error)",
       bg:     "rgba(248,113,113,0.07)",
       border: "rgba(248,113,113,0.22)",
-      message: "Your submission needs some changes — review the notes and resubmit.",
+      message: "Your submission needs some changes. Review the notes and resubmit.",
     },
   } as const;
 
@@ -142,7 +142,7 @@ function StatusCard({
           ) : (
             <>
               <p className="mb-4 font-semibold" style={{ color: "var(--color-text-primary)" }}>
-                🎉 Course complete — congratulations!
+                🎉 Course complete, congratulations!
               </p>
               <a
                 href="/course"

@@ -14,7 +14,7 @@ type Certificate = {
 const BRIEF_LABELS: Record<string, string> = {
   A: "Thirroul Beachside Café (Brief A)",
   B: "Illawarra Physio Clinic (Brief B)",
-  C: "Local Electrician — Sparkwise Electrical (Brief C)",
+  C: "Local Electrician, Sparkwise Electrical (Brief C)",
 };
 
 export default async function CertificatePage() {
@@ -103,17 +103,12 @@ export default async function CertificatePage() {
 
             {/* Issuer */}
             <div>
-              <p
-                style={{
-                  fontSize:      "10px",
-                  letterSpacing: "0.25em",
-                  textTransform: "uppercase",
-                  color:         "#c9a227",
-                  marginBottom:  "2px",
-                }}
-              >
-                Baxoptimized
-              </p>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/LOGOS/baxoptimized-logo-dark-text-transparent.png"
+                alt="Baxoptimized"
+                style={{ height: "16px", width: "auto", margin: "0 auto 6px" }}
+              />
               <p
                 style={{
                   fontSize:      "9px",
@@ -175,7 +170,7 @@ export default async function CertificatePage() {
                   fontStyle:     "italic",
                 }}
               >
-                Web Design &amp; Development — Professional Practice
+                Web Design &amp; Development: Professional Practice
               </p>
             </div>
 
@@ -205,6 +200,11 @@ export default async function CertificatePage() {
                 </p>
               </div>
             </div>
+
+            {/* Certificate ID */}
+            <p style={{ fontSize: "8px", color: "#bbb", letterSpacing: "0.08em", marginTop: "10px" }}>
+              Certificate ID: {cert.id}
+            </p>
 
           </div>
         </div>

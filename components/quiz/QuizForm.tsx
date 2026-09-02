@@ -178,7 +178,7 @@ function QuestionCard({
             onBlur={(e)  => { (e.target as HTMLElement).style.borderColor = "var(--color-navy-600)"; }}
           />
           <p className="mt-2 text-xs" style={{ color: "var(--color-text-muted)" }}>
-            Reflection questions are always accepted — write in your own words.
+            Reflection questions are always accepted, write in your own words.
           </p>
         </div>
       ) : (

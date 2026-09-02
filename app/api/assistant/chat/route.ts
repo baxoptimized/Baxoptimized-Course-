@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
   }
 
   if (!process.env.ANTHROPIC_API_KEY) {
-    return new Response("The assistant isn't set up yet — email us instead.", { status: 503 });
+    return new Response("The assistant isn't set up yet, email us instead.", { status: 503 });
   }
 
   const body = await req.json().catch(() => null);
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     return new Response("Ask a question first.", { status: 400 });
   }
   if (question.length > MAX_QUESTION_LENGTH) {
-    return new Response("That question's a bit long — try trimming it down.", { status: 400 });
+    return new Response("That question's a bit long, try trimming it down.", { status: 400 });
   }
 
   const history: HistoryTurn[] = rawHistory
@@ -55,7 +55,7 @@ Lesson content:
 ${lessonContent.slice(0, MAX_LESSON_CHARS)}
 """
 
-Only answer questions about this lesson, the course's teaching method, or web-development concepts a beginner in this course would reasonably run into. If a question is unrelated to the course, say briefly that you're scoped to this course and steer back to the lesson — don't answer it.
+Only answer questions about this lesson, the course's teaching method, or web-development concepts a beginner in this course would reasonably run into. If a question is unrelated to the course, say briefly that you're scoped to this course and steer back to the lesson instead of answering it.
 
 Keep answers short: a few sentences, plain text, no markdown headers or bullet walls. This is a small chat widget, not a document.`;
 
@@ -83,7 +83,7 @@ Keep answers short: a few sentences, plain text, no markdown headers or bullet w
         }
       } catch (err) {
         console.error("Assistant chat error:", err);
-        controller.enqueue(encoder.encode("\n\n(Something went wrong on our end — try again in a moment.)"));
+        controller.enqueue(encoder.encode("\n\n(Something went wrong on our end, try again in a moment.)"));
       } finally {
         controller.close();
       }
