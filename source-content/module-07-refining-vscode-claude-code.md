@@ -31,24 +31,28 @@ Editing components/Nav.tsx...
 Done. The navigation bar now stays fixed to the top on scroll.
 </Terminal>
 
-**🤖 PROMPT CARDS: common refinements:**
+Common refinements, as their own prompts:
 
+**🤖 PROMPT CARD (sticky nav):**
 ```
 Make the navigation bar sticky, so it stays visible at the top as the
 visitor scrolls down.
 ```
 
+**🤖 PROMPT CARD (mobile spacing):**
 ```
 On mobile only, increase the padding inside the [section] cards, and
 increase the gap between them: they currently feel cramped on a
 narrow screen.
 ```
 
+**🤖 PROMPT CARD (entrance animation):**
 ```
 Add a subtle fade-in-and-rise animation to [the specific element] when
 the page loads. Keep it under half a second, nothing flashy.
 ```
 
+**🤖 PROMPT CARD (matching an existing page):**
 ```
 Review the [reference page]'s spacing, font sizes, and button styles,
 and apply the exact same patterns to [target page] so they feel like

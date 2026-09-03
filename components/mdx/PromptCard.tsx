@@ -29,11 +29,20 @@ function HighlightedCode({ text }: { text: string }) {
 }
 
 // Recursively extract plain text from React children (handles nested elements
-// rendered from MDX HTML entity decoding).
-function childrenToText(node: ReactNode): string {
+// rendered from MDX HTML entity decoding). A blank line between paragraphs in
+// the original prompt becomes separate sibling <p> elements once MDX parses
+// the JSX children as markdown, so the top-level array must rejoin them with
+// a blank line of its own; joining with "" glues paragraphs together (e.g.
+// "...you ran]:[paste the full error text]"). Nested/inline children within a
+// single paragraph (plain text mixed with formatting) still join with no
+// separator, since those aren't paragraph breaks.
+function childrenToText(node: ReactNode, topLevel = false): string {
   if (typeof node === "string") return node;
   if (typeof node === "number") return String(node);
-  if (Array.isArray(node)) return node.map(childrenToText).join("");
+  if (Array.isArray(node)) {
+    const parts = node.map((child) => childrenToText(child, false));
+    return topLevel ? parts.join("\n\n") : parts.join("");
+  }
   if (node && typeof node === "object" && "props" in (node as object)) {
     const props = (node as { props: Record<string, unknown> }).props;
     return childrenToText(props?.children as ReactNode);
@@ -54,7 +63,7 @@ export function PromptCard({
   const label = title || "PROMPT";
 
   function copy() {
-    const text = codeRef.current?.innerText?.trim() ?? childrenToText(children).trim();
+    const text = codeRef.current?.innerText?.trim() ?? childrenToText(children, true).trim();
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
@@ -62,7 +71,7 @@ export function PromptCard({
   }
 
   // Extract the raw text for display with bracket highlighting
-  const rawText = childrenToText(children).trim();
+  const rawText = childrenToText(children, true).trim();
 
   return (
     <div

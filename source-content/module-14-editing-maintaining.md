@@ -28,18 +28,19 @@ Finally, **verify** on the live site (30-60 sec after push), then **confirm** to
 
 ## 🤖 Common edits with Claude Code
 
-**🤖 PROMPT CARDS:**
-
+**🤖 PROMPT CARD (phone number update):**
 ```
 Update the phone number on [page] to [new number].
 ```
 
+**🤖 PROMPT CARD (new project card):**
 ```
 Add a new project card to the Work page. The project is [type] in
 [location]: use [the image filename you just added], with the caption
 "[Project Type], [Location]."
 ```
 
+**🤖 PROMPT CARD (targeted edit):**
 ```
 Change the [specific element] to: [new text]. Keep everything else
 about [that section] exactly as it is.
