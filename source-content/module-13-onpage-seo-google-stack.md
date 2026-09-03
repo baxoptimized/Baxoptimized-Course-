@@ -6,6 +6,14 @@
 
 ---
 
+## 🗺️ The Google stack, at a glance
+
+> 🖼️ **DIAGRAM PLACEHOLDER:** Four systems, one goal: GA4 (traffic + conversions) → Search Console (indexing + search performance) → Business Profile (local visibility) → Schema markup (machine-readable data) → local search rankings.
+
+You're setting up all four in this module. Each one does a different job; together they're what makes a site actually findable.
+
+---
+
 ## 📊 Setting up Google Analytics 4
 
 **Steps:**

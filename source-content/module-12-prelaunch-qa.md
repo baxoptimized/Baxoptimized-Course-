@@ -34,6 +34,8 @@ Run this before ANY site goes live, every time, no exceptions:
 
 ## ⚡ Running PageSpeed Insights and fixing what it flags
 
+> 🖼️ **SCREENSHOT PLACEHOLDER:** A PageSpeed Insights mobile report showing a 90+ score, the green ring and the Core Web Vitals breakdown beneath it, so students know exactly what a passing result looks like before they run their own.
+
 **Most common culprits, in order:**
 1. An unoptimised image that slipped through (Module 7)
 2. A slow third-party script

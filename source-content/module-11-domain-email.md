@@ -10,6 +10,8 @@
 
 > 🔗 Nothing about your code changes in this module. This is purely DNS: pointing a real domain at the Vercel project you already deployed.
 
+> 🖼️ **DIAGRAM PLACEHOLDER:** Registrar (VentraIP/Crazy Domains) → Vercel Domains settings → A/CNAME records added at the registrar → DNS propagates → SSL provisions automatically → live on the custom domain, left to right.
+
 ---
 
 ## 🛒 Buying a .com.au domain
