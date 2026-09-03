@@ -183,6 +183,16 @@ function parseModule(content, filename) {
     /staff-only|operator/i.test(slug) ||
     /staff\s+only/i.test(title);
 
+  // Detect a hard-gated (manually-reviewed) module from its own "**Gate to
+  // pass:**" line, e.g. "**Gate to pass:** HARD GATE: submit your GitHub
+  // repo link...". Content-driven so it can't silently drift from what the
+  // lesson itself tells the student — see redesign-brief-status memory for
+  // why this matters: the checkpoint submission page 404s outright when
+  // this is false, so an un-set hard_gate means the whole review step is
+  // unreachable, not just unenforced.
+  const gateLine = lines.find((l) => /^\*\*Gate to pass:\*\*/i.test(l));
+  const hardGate = gateLine ? /HARD GATE/i.test(gateLine) : false;
+
   // order_index: multiply module number by 10 to preserve .5 spacing as integers
   const orderIndex = number !== null ? Math.round(number * 10) : 9990;
 
@@ -235,7 +245,7 @@ function parseModule(content, filename) {
     });
   }
 
-  return { slug, title, orderIndex, isStaffOnly, lessons, quizQuestions };
+  return { slug, title, orderIndex, isStaffOnly, hardGate, lessons, quizQuestions };
 }
 
 // ─── Database helpers ─────────────────────────────────────────────────────────
@@ -245,8 +255,8 @@ async function upsertModule(mod) {
   await sql`DELETE FROM modules WHERE slug = ${mod.slug}`;
 
   const rows = await sql`
-    INSERT INTO modules (slug, title, order_index, is_staff_only)
-    VALUES (${mod.slug}, ${mod.title}, ${mod.orderIndex}, ${mod.isStaffOnly})
+    INSERT INTO modules (slug, title, order_index, is_staff_only, hard_gate)
+    VALUES (${mod.slug}, ${mod.title}, ${mod.orderIndex}, ${mod.isStaffOnly}, ${mod.hardGate})
     RETURNING id
   `;
   return rows[0].id;
@@ -318,7 +328,8 @@ async function main() {
 
       console.log(
         `${mod.lessons.length} lessons, ${mod.quizQuestions.length} quiz Qs` +
-          (mod.isStaffOnly ? " [staff-only]" : "")
+          (mod.isStaffOnly ? " [staff-only]" : "") +
+          (mod.hardGate ? " [HARD GATE]" : "")
       );
 
       totalModules++;
