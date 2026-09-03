@@ -204,7 +204,7 @@ export function AssistantWidget({
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={open ? "Close progress check-in" : "Open progress check-in"}
-        className="flex h-12 w-12 items-center justify-center rounded-full transition-transform hover:scale-105"
+        className="flex h-11 w-11 items-center justify-center rounded-full transition-transform hover:scale-105 sm:h-12 sm:w-12"
         style={{
           background: "var(--color-accent)",
           color: "#fff",

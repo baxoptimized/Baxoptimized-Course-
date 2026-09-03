@@ -11,14 +11,16 @@
 1. **Pull** latest: `git pull origin main`
 2. **Edit** (manually or with Claude Code)
 3. **Preview** locally with Live Server
-4. **Commit and push:**
-```bash
-git add .
-git commit -m "Updated phone number on contact page"
-git push
-```
-5. **Verify** on the live site (30-60 sec after push)
-6. **Confirm** to the client: "Done, have a look and let me know."
+
+Then commit and push:
+
+<Terminal label="terminal">
+$ git add .
+$ git commit -m "Updated phone number on contact page"
+$ git push
+</Terminal>
+
+Finally, **verify** on the live site (30-60 sec after push), then **confirm** to the client: "Done, have a look and let me know."
 
 > 🔁 This exact cycle handles every edit request, forever: for the rest of your career.
 
@@ -59,16 +61,26 @@ about [that section] exactly as it is.
 
 ## 💾 Backing up and rolling back
 
-```bash
-# See recent changes
-git log --oneline
+See your recent changes:
 
-# Roll back a specific file to a previous commit
-git checkout abc1234 -- filename.html
+<Terminal label="terminal">
+$ git log --oneline
+abc1234 Updated phone number on contact page
+9f3e2a1 Added new Work page project card
+c88df01 Fixed homepage hero headline
+</Terminal>
 
-# Or safely undo the most recent commit
-git revert HEAD
-```
+Roll back a specific file to a previous commit:
+
+<Terminal label="terminal">
+$ git checkout abc1234 -- filename.html
+</Terminal>
+
+Or safely undo the most recent commit:
+
+<Terminal label="terminal">
+$ git revert HEAD
+</Terminal>
 
 > 🛡️ GitHub IS your backup. Every version, forever. You never lose work: you go back to the last point everything worked.
 

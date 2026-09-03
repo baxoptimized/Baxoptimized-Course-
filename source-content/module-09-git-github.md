@@ -67,10 +67,11 @@ Use the SSH URL you copied when creating the repo for that `git remote add` line
 ## 🆘 When it goes wrong
 
 **Common error: "rejected, remote contains work you don't have":**
-```bash
-git pull origin main
-git push
-```
+
+<Terminal label="terminal">
+$ git pull origin main
+$ git push
+</Terminal>
 
 **🤖 PROMPT CARD (Git error debugging):**
 ```

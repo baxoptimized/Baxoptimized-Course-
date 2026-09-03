@@ -20,9 +20,9 @@ Form → route handler → Resend → client's inbox → client replies directly
 
 The big one-time setup happened in Module 4. This is the short, per-project repeat:
 
-```bash
-npm install resend
-```
+<Terminal label="terminal">
+$ npm install resend
+</Terminal>
 
 Create `.env.local`:
 ```

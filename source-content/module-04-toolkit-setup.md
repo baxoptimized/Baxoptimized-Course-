@@ -29,10 +29,12 @@ You're setting up every account in this chain, **once.** Every future client pro
 **Steps:**
 1. **code.visualstudio.com** → download → install with defaults
 2. Extensions icon (4 squares) → install **Claude Code**, **Live Server**, **Prettier**
-3. Open terminal (`` Ctrl+` `` / `` Cmd+` ``):
-```bash
-mkdir -p ~/clients
-```
+
+Then open a terminal (`` Ctrl+` `` / `` Cmd+` ``) and create your working folder:
+
+<Terminal label="terminal">
+$ mkdir -p ~/clients
+</Terminal>
 
 > 📁 Every client project lives inside `~/clients/` from here on.
 
@@ -40,31 +42,42 @@ mkdir -p ~/clients
 
 ## 🐙 GitHub, Git & SSH: the careful one
 
-**Steps:**
-1. Sign up at **github.com**
-2. Check Git: `git --version` (Mac usually has it; Windows → git-scm.com)
-3. Configure identity:
-```bash
-git config --global user.name "Your Name"
-git config --global user.email "your@email.com"
-```
-4. Generate an SSH key:
-```bash
-ssh-keygen -t ed25519 -C "your@email.com"
-```
-5. Copy the public key:
-```bash
-# Mac
-cat ~/.ssh/id_ed25519.pub | pbcopy
-# Windows
-cat ~/.ssh/id_ed25519.pub | clip
-```
-6. GitHub → **Settings → SSH and GPG keys → New SSH key** → paste → save
-7. Test it:
-```bash
-ssh -T git@github.com
-```
-   ✅ You should see: *"Hi [username]! You've successfully authenticated..."*
+Sign up at **github.com**, then check Git is installed: `git --version` (Mac usually has it; Windows → git-scm.com).
+
+Configure your identity and generate an SSH key:
+
+<Terminal label="terminal">
+$ git config --global user.name "Your Name"
+$ git config --global user.email "your@email.com"
+$ ssh-keygen -t ed25519 -C "your@email.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/you/.ssh/id_ed25519):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /Users/you/.ssh/id_ed25519
+Your public key has been saved in /Users/you/.ssh/id_ed25519.pub
+</Terminal>
+
+Copy the public key to your clipboard. On Mac:
+
+<Terminal label="terminal">
+$ cat ~/.ssh/id_ed25519.pub | pbcopy
+</Terminal>
+
+On Windows:
+
+<Terminal label="terminal">
+$ cat ~/.ssh/id_ed25519.pub | clip
+</Terminal>
+
+Paste it into GitHub: **Settings → SSH and GPG keys → New SSH key** → paste → save.
+
+Test the connection:
+
+<Terminal label="terminal">
+$ ssh -T git@github.com
+Hi yourusername! You've successfully authenticated, but GitHub does not provide shell access.
+</Terminal>
 
 > 🔑 An SSH key just proves to GitHub it's really you, without typing a password every time. One-time setup, forever.
 
